@@ -3,7 +3,7 @@ GCC = nspire-gcc
 AS = nspire-as
 GXX=nspire-g++
 LD = nspire-ld-bflt
-GCCFLAGS = -Wall -W -marm
+GCCFLAGS = -Wall -W -marm -Werror=missing-prototypes -Werror=missing-declarations -Werror=implicit-function-declaration
 LDFLAGS = -L. -lvpx
 ifeq ($(DEBUG),FALSE)
 	GCCFLAGS += -Os

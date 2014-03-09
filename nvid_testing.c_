@@ -46,7 +46,7 @@ static unsigned int mem_get_le32(const unsigned char *mem) {
     return (mem[3] << 24)|(mem[2] << 16)|(mem[1] << 8)|(mem[0]);
 }
  
-static void die(const char *fmt, ...) {
+static void die(char *fmt, ...) {
     va_list ap;
  
     va_start(ap, fmt);

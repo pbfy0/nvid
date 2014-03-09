@@ -45,20 +45,20 @@ static unsigned int mem_get_le32(const unsigned char *mem) {
     return (mem[3] << 24)|(mem[2] << 16)|(mem[1] << 8)|(mem[0]);
 }
  
-static void die(const char *text) {
+static void die(char *text) {
     uart_printf(text);
     if(text[strlen(text)-1] != '\n')
         uart_printf("\n");
-		close(infile);
+		fclose(infile);
     exit(EXIT_FAILURE);
 }
  
-/*static void die_codec(vpx_codec_ctx_t *ctx, const char *s) {
+/*static void die_codec(vpx_codec_ctx_t *ctx, char *s) {
     const char *detail = vpx_codec_error_detail(ctx);
     uart_printf("%s: %s\n", s, vpx_codec_error(ctx));
     if(detail)
         uart_printf("    %s\n",detail);
-		close(infile);
+		fclose(infile);
     exit(EXIT_FAILURE);
 }*/
  
@@ -101,7 +101,7 @@ int main(int argc, char **argv) {
     //printf("Using %s\n",vpx_codec_iface_name(vpx_interface));
     /* Initialize codec */
     //if(vpx_codec_dec_init(&codec, vpx_interface, NULL, flags))
-    //    die_codec(&codec, "Failed to initialize decoder");
+//        die_codec(&codec, "Failed to initialize decoder");
  
     /* Read each frame */
     while(fread(frame_hdr, 1, IVF_FRAME_HDR_SZ, infile) == IVF_FRAME_HDR_SZ) {
@@ -117,6 +117,9 @@ int main(int argc, char **argv) {
 				
         if(fread(frame, 1, frame_sz, infile) != frame_sz)
             die("Frame failed to read complete frame");
+				
+				//if(vpx_codec_decode(&codec, frame, frame_sz, NULL, 0))
+        //    die_codec(&codec, "Failed to decode frame");
  
         
     }
