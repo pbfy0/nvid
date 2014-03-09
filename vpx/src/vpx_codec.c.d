@@ -1,0 +1,40 @@
+vpx/src/vpx_codec.c.o vpx/src/vpx_codec.c.d: ../libvpx/vpx/src/vpx_codec.c \
+ c:/Users/Paul/ndless-sdk/ndless/bin/../include/os.h \
+ c:/Users/Paul/ndless-sdk/ndless/bin/../include/common.h \
+ c:\programs86\yagarto-20121222\bin\../lib/gcc/arm-none-eabi/4.7.2/include/stddef.h \
+ c:\programs86\yagarto-20121222\bin\../lib/gcc/arm-none-eabi/4.7.2/include/stdint.h \
+ c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/stdint.h \
+ c:/Users/Paul/ndless-sdk/ndless/bin/../include/libndls.h \
+ c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/types.h \
+ c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/_ansi.h \
+ c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/newlib.h \
+ c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/config.h \
+ c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/machine/ieeefp.h \
+ c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/features.h \
+ c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/machine/_types.h \
+ c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/machine/_default_types.h \
+ c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/_types.h \
+ c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/lock.h \
+ c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/machine/types.h \
+ c:/Users/Paul/ndless-sdk/ndless/bin/../include/usbdi.h \
+ c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/queue.h \
+ c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/machine/ansi.h \
+ c:/Users/Paul/ndless-sdk/ndless/bin/../include/bsdcompat.h \
+ c:/Users/Paul/ndless-sdk/ndless/bin/../include/usb.h \
+ c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/time.h \
+ c:/Users/Paul/ndless-sdk/ndless/bin/../include/syscalls.h \
+ c:/Users/Paul/ndless-sdk/ndless/bin/../include/lauxlib.h \
+ c:/Users/Paul/ndless-sdk/ndless/bin/../include/lua.h \
+ c:/Users/Paul/ndless-sdk/ndless/bin/../include/luaconf.h \
+ c:/Users/Paul/ndless-sdk/ndless/bin/../include/bsdcompat.h \
+ ../libvpx/vpx/vpx_integer.h ../libvpx/vpx/internal/vpx_codec_internal.h \
+ ../libvpx/vpx/internal/../vpx_decoder.h \
+ ../libvpx/vpx/internal/.././vpx_codec.h \
+ ../libvpx/vpx/internal/../././vpx_integer.h \
+ ../libvpx/vpx/internal/../././vpx_image.h \
+ ../libvpx/vpx/internal/.././vpx_frame_buffer.h \
+ ../libvpx/vpx/internal/../vpx_encoder.h \
+ c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/setjmp.h \
+ c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/_ansi.h \
+ c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/machine/setjmp.h \
+ vpx_version.h
