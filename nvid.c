@@ -55,7 +55,7 @@ static void die_codec(vpx_codec_ctx_t *ctx, char *s) {
  
  
 int main(int argc, char **argv) {
-		enable_relative_paths(argv);
+		cfg_register_fileext("ivf", "nvid");
     vpx_codec_ctx_t  codec;
     int              flags = 0, frame_cnt = 0;
     uchar    file_hdr[IVF_FILE_HDR_SZ];
@@ -77,12 +77,12 @@ int main(int argc, char **argv) {
     (void)res;
     /* Open files */
 		if(argc!=2){
-			die("Wrong number of arguments.");
-			return 0;
+			show_msgbox("Error", "Wrong number of arguments.");
+			return 1;
 		}
 		if(!(infile = fopen(argv[1], "rb"))){
-			die("Could not open input file");
-			return 0;
+			show_msgbox("Error", "Could not open input file.");
+			return 2;
 		}
  
     /* Read file header */
@@ -143,8 +143,11 @@ int main(int argc, char **argv) {
 								vbuf += img->stride[2];
 							}
 						}
-						uart_printf("frame %d\n", frame_cnt);
 						memcpy(SCREEN_BASE_ADDRESS, rgb_frame_data, 320*240*2);
+						if(isKeyPressed(KEY_NSPIRE_ESC)){
+							vpx_codec_destroy(&codec);
+							return 0;
+						}
 						//fwrite(rgb_frame_data, 3, 320*240, outfile);
 						//return 0;
         }
