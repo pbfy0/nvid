@@ -14,10 +14,8 @@
  */
 
 #include <math.h>
-#include <stdarg.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include <os.h>
+#include <libndls.h>
 #define VPX_DISABLE_CTRL_TYPECHECKS 1
 #define VPX_CODEC_DISABLE_COMPAT 1
 #include "vpx/svc_context.h"
@@ -26,8 +24,8 @@
 
 #ifdef __MINGW32__
 char* strtok_r(
-    char *str, 
-    const char *delim, 
+    char *str,
+    const char *delim,
     char **nextp)
 {
     char *ret;

@@ -45,7 +45,8 @@
 #define VPX_INTERNAL_VPX_CODEC_INTERNAL_H_
 #include "../vpx_decoder.h"
 #include "../vpx_encoder.h"
-#include <stdarg.h>
+#include <os.h>
+#include <libndls.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -476,7 +477,6 @@ vpx_codec_pkt_list_get(struct vpx_codec_pkt_list *list,
                        vpx_codec_iter_t           *iter);
 
 
-#include <stdio.h>
 #include <setjmp.h>
 
 struct vpx_internal_error_info {

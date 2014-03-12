@@ -63,11 +63,12 @@ int main(int argc, char **argv) {
 		//unsigned mode = *controller & ~0b1110;
 		//*controller = mode | 0b1010;
 		// 53 columns, 29 rows. 0px offset for x/y. Background color 0 (black), foreground color 15 (white)
-		lcd_incolor();
+		//lcd_incolor();
 		//nio_init(&csl, 53, 29, 0, 0, 0, 15, TRUE);
 		//nio_fflush(&csl);
 		//nio_set_default(&csl);
 		//printf("Console initialized\n");
+		
  
     (void)res;
     /* Open files */
@@ -80,6 +81,9 @@ int main(int argc, char **argv) {
 			show_msgbox("Error", "Could not open input file.");
 			return 2;
 		}
+		uchar color_mode = has_colors;
+		int screen_size = SCREEN_BYTES_SIZE;
+
  
     /* Read file header */
     if(!(fread(file_hdr, 1, IVF_FILE_HDR_SZ, infile) == IVF_FILE_HDR_SZ
@@ -94,7 +98,7 @@ int main(int argc, char **argv) {
 		unsigned int frame_sz;
 		vpx_codec_iter_t iter;
 		vpx_image_t *img;
-    uchar *rgb_frame_data = malloc(320*240*2*sizeof(uchar));//[240][320][3] = {0};
+    uchar *output_frame_data = malloc(screen_size);//[240][320][3] = {0};
     /* Read each frame */
     while(fread(frame_hdr, 1, IVF_FRAME_HDR_SZ, infile) == IVF_FRAME_HDR_SZ) {
         frame_sz = mem_get_le32(frame_hdr);
@@ -119,32 +123,40 @@ int main(int argc, char **argv) {
 						uchar *ybuf =img->planes[0];
 						uchar *ubuf = img->planes[1];
 						uchar *vbuf = img->planes[2];
+						if(color_mode){
+							for(y=0; y < img->d_h; y++) {
+								for(x=0; x < width; x++) {
+									int c = ybuf[x] - 16;
+									int d = ubuf[x>>1] - 128;
+									int e = vbuf[x>>1] - 128;
+									uchar r = clamp((298*c+409*e+128) >> 8);
+									uchar g = clamp((298*c-100*d-208*e+128) >> 8);
+									uchar b = clamp((298*c+516*d+128) >> 8);
+									uchar *pixel = output_frame_data+((y*width+x)<<1);
+									pixel[1] = (r & 0b11111000) | g >> 5;
+									pixel[0] = ((g << 3) & 0b11100000) | b >> 3;
+								}
 
-						for(y=0; y < img->d_h; y++) {
-							for(x=0; x < width; x++) {
-								int c = ybuf[x] - 16;
-								int d = ubuf[x>>1] - 128;
-								int e = vbuf[x>>1] - 128;
-								uchar r = clamp((298*c+409*e+128) >> 8);
-								uchar g = clamp((298*c-100*d-208*e+128) >> 8);
-								uchar b = clamp((298*c+516*d+128) >> 8);
-								uchar *pixel = rgb_frame_data+((y*width+x)<<1);
-								pixel[1] = (r & 0b11111000) | g >> 5;
-								pixel[0] = ((g << 3) & 0b11100000) | b >> 3;
+								ybuf += img->stride[0];
+								if(y&1){
+									ubuf += img->stride[1];
+									vbuf += img->stride[2];
+								}
 							}
-
-							ybuf += img->stride[0];
-							if(y&1){
-								ubuf += img->stride[1];
-								vbuf += img->stride[2];
+						}else{
+							for(y=0; y < img->d_h; y++) {
+								for(x=0; x < width; x+=2) {
+									output_frame_data[(y*width+x)>>1] = (ybuf[x]&0xf0) | (ybuf[x+1]>>4);
+								}
+								ybuf += img->stride[0];
 							}
 						}
-						memcpy(SCREEN_BASE_ADDRESS, rgb_frame_data, 320*240*2);
+						memcpy(SCREEN_BASE_ADDRESS, output_frame_data, screen_size);
 						if(isKeyPressed(KEY_NSPIRE_ESC)){
 							vpx_codec_destroy(&codec);
 							return 0;
 						}
-						//fwrite(rgb_frame_data, 3, 320*240, outfile);
+						//fwrite(output_frame_data, 3, 320*240, outfile);
 						//return 0;
         }
     }

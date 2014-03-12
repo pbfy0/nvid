@@ -14,7 +14,8 @@
  *
  */
 #include <limits.h>
-#include <string.h>
+#include <os.h>
+#include <libndls.h>
 #include "vpx/internal/vpx_codec_internal.h"
 #include "vpx_config.h"
 

@@ -13,8 +13,8 @@
  * \brief Provides the high level interface to wrap decoder algorithms.
  *
  */
-#include <stdarg.h>
-#include <stdlib.h>
+#include <os.h>
+#include <libndls.h>
 #include "vpx/vpx_integer.h"
 #include "vpx/internal/vpx_codec_internal.h"
 #include "vpx_version.h"

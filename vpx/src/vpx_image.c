@@ -9,8 +9,8 @@
  */
 
 
-#include <stdlib.h>
-#include <string.h>
+#include <os.h>
+#include <libndls.h>
 #include "vpx/vpx_image.h"
 
 #define ADDRESS_STORAGE_SIZE      sizeof(size_t)
