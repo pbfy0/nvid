@@ -13,8 +13,6 @@
 #include <nspireio2.h>
 
 FILE            *infile;
-nio_console csl;
-#define printf(...) nio_printf(&csl, __VA_ARGS__)
 
 #define VPX_CODEC_DISABLE_COMPAT 1
 #include "vpx/vpx_decoder.h"
@@ -55,7 +53,6 @@ static void die_codec(vpx_codec_ctx_t *ctx, char *s) {
  
  
 int main(int argc, char **argv) {
-		cfg_register_fileext("ivf", "nvid");
     vpx_codec_ctx_t  codec;
     int              flags = 0, frame_cnt = 0;
     uchar    file_hdr[IVF_FILE_HDR_SZ];
@@ -63,21 +60,20 @@ int main(int argc, char **argv) {
     uchar    *frame = malloc(FRAME_SIZE*sizeof(uchar));//[256*1024];
     vpx_codec_err_t  res;
 		
-		nio_console csl;
-		clrscr();
 		//unsigned mode = *controller & ~0b1110;
 		//*controller = mode | 0b1010;
 		// 53 columns, 29 rows. 0px offset for x/y. Background color 0 (black), foreground color 15 (white)
 		lcd_incolor();
-		nio_init(&csl, 53, 29, 0, 0, 0, 15, TRUE);
-		nio_fflush(&csl);
-		nio_set_default(&csl);
-		printf("Console initialized\n");
+		//nio_init(&csl, 53, 29, 0, 0, 0, 15, TRUE);
+		//nio_fflush(&csl);
+		//nio_set_default(&csl);
+		//printf("Console initialized\n");
  
     (void)res;
     /* Open files */
 		if(argc!=2){
-			show_msgbox("Error", "Wrong number of arguments.");
+			cfg_register_fileext("ivf", "nvid");
+			show_msgbox("Info", "File extension registered\n" "To use, open an ivf file.");
 			return 1;
 		}
 		if(!(infile = fopen(argv[1], "rb"))){
@@ -91,7 +87,7 @@ int main(int argc, char **argv) {
          && file_hdr[3]=='F'))
         die("Not an IVF file!");
  
-    printf("Using %s\n",vpx_codec_iface_name(vpx_interface));
+    //printf("Using %s\n",vpx_codec_iface_name(vpx_interface));
     /* Initialize codec */
     if(vpx_codec_dec_init(&codec, vpx_interface, NULL, flags))
         die_codec(&codec, "Failed to initialize decoder");
@@ -153,7 +149,7 @@ int main(int argc, char **argv) {
         }
     }
 		
-    printf("Processed %d frames.\n",frame_cnt);
+    //printf("Processed %d frames.\n",frame_cnt);
     if(vpx_codec_destroy(&codec))
         die_codec(&codec, "Failed to destroy codec");
  
