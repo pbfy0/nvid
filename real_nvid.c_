@@ -38,7 +38,6 @@
 #include "vpx/vpx_decoder.h"
 #include "vpx/vp8dx.h"
 #define vpx_interface (vpx_codec_vp8_dx())
-#define clamp(x) (x < 0 ? 0 : (x > 255 ? 255 : x))
  
  
 #define IVF_FILE_HDR_SZ  (32)
@@ -65,7 +64,10 @@ static void die_codec(vpx_codec_ctx_t *ctx, const char *s) {
         printf("    %s\n",detail);
     exit(EXIT_FAILURE);
 }
- 
+
+static unsigned char clamp(int x){
+		return (x < 0 ? 0 : (x > 255 ? 255 : x));
+}
  
 int main(int argc, char **argv) {
     FILE            *infile, *outfile;
@@ -139,8 +141,8 @@ int main(int argc, char **argv) {
         if(vpx_codec_decode(&codec, frame, frame_sz, NULL, 0))
             die_codec(&codec, "Failed to decode frame");
  
-				unsigned char y_frame_data[240][320] = {0};//calloc(1, 240*320*3);//width*height*3];
-				unsigned char uv_frame_data[120][160][2] = {0};
+//				unsigned char y_frame_data[240][320] = {0};//calloc(1, 240*320*3);//width*height*3];
+//				unsigned char uv_frame_data[120][160][2] = {0};
 				unsigned char rgb_frame_data[240][320][3] = {0};
         /* Write decoded data to disk */
         while((img = vpx_codec_get_frame(&codec, &iter))) {
@@ -152,30 +154,26 @@ int main(int argc, char **argv) {
 						//int fmt = img->fmt & ~VPX_IMG_FMT_PLANAR;
 						//printf("%d\n", img->fmt);
  
-            for(plane=0; plane < 3; plane++) {
-                unsigned char *buf =img->planes[plane];
-                for(y=0; y < (plane ? (img->d_h + 1) >> 1 : img->d_h); y++) {
-									for(x=0; x < (plane ? (img->d_w + 1) >> 1 : img->d_w); x++) {
-										if(plane)
-											uv_frame_data[y][x][plane-1] = buf[x];
-										else
-											y_frame_data[y][x] = buf[x];
+                unsigned char *ybuf =img->planes[0];
+								unsigned char *ubuf = img->planes[1];
+								unsigned char *vbuf = img->planes[2];
+                for(y=0; y < img->d_h; y++) {
+									for(x=0; x < img->d_w; x++) {
+										int c = ybuf[x] - 16;
+										int d = ubuf[x>>1] - 128;
+										int e = vbuf[x>>1] - 128;
+										unsigned char *pixel = rgb_frame_data[y][x];
+										pixel[0] = clamp((298*c+409*e+128) >> 8);
+										pixel[1] = clamp((298*c-100*d-208*e+128) >> 8);
+										pixel[2] = clamp((298*c+516*d+128) >> 8);
 									}
 									//fwrite(buf, 1, width, outfile);
-                  buf += img->stride[plane];
+                  ybuf += img->stride[plane];
+									if(y%2 == 1){
+										ubuf += img->stride[1];
+										vbuf += img->stride[2];
+									}
                 }
-            }
-						for(y=0; y < 240; y++){
-							for(x=0; x < 320; x++){
-								int c = y_frame_data[y][x] - 16;
-								int d = uv_frame_data[y/2][x/2][0] - 128;
-								int e = uv_frame_data[y/2][x/2][1] - 128;
-								char *pixel = rgb_frame_data[y][x];
-								pixel[0] = clamp((298*c+409*e+128) >> 8);
-								pixel[1] = clamp((298*c-100*d-208*e+128) >> 8);
-								pixel[2] = clamp((298*c+516*d+128) >> 8);
-							}
-						}
 						fwrite(rgb_frame_data, 3, 320*240, outfile);
 						//return 0;
         }

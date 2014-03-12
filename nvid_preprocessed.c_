@@ -1,0 +1,2402 @@
+# 1 "nvid.c"
+# 1 "<command-line>"
+# 1 "nvid.c"
+# 11 "nvid.c"
+# 1 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/os.h" 1
+# 16 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/os.h"
+# 1 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/common.h" 1
+# 202 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/common.h"
+# 1 "c:\\programs86\\yagarto-20121222\\bin\\../lib/gcc/arm-none-eabi/4.7.2/include/stddef.h" 1 3 4
+# 150 "c:\\programs86\\yagarto-20121222\\bin\\../lib/gcc/arm-none-eabi/4.7.2/include/stddef.h" 3 4
+typedef int ptrdiff_t;
+# 213 "c:\\programs86\\yagarto-20121222\\bin\\../lib/gcc/arm-none-eabi/4.7.2/include/stddef.h" 3 4
+typedef unsigned int size_t;
+# 325 "c:\\programs86\\yagarto-20121222\\bin\\../lib/gcc/arm-none-eabi/4.7.2/include/stddef.h" 3 4
+typedef unsigned int wchar_t;
+# 203 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/common.h" 2
+# 1 "c:\\programs86\\yagarto-20121222\\bin\\../lib/gcc/arm-none-eabi/4.7.2/include/stdint.h" 1 3 4
+
+
+# 1 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/stdint.h" 1 3 4
+# 41 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/stdint.h" 3 4
+typedef signed char int8_t ;
+typedef unsigned char uint8_t ;
+
+
+
+
+typedef signed char int_least8_t;
+typedef unsigned char uint_least8_t;
+
+
+
+
+typedef signed short int16_t;
+typedef unsigned short uint16_t;
+# 67 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/stdint.h" 3 4
+typedef int16_t int_least16_t;
+typedef uint16_t uint_least16_t;
+# 79 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/stdint.h" 3 4
+typedef signed long int32_t;
+typedef unsigned long uint32_t;
+# 97 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/stdint.h" 3 4
+typedef int32_t int_least32_t;
+typedef uint32_t uint_least32_t;
+# 119 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/stdint.h" 3 4
+typedef signed long long int64_t;
+typedef unsigned long long uint64_t;
+# 129 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/stdint.h" 3 4
+typedef int64_t int_least64_t;
+typedef uint64_t uint_least64_t;
+# 159 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/stdint.h" 3 4
+  typedef signed int int_fast8_t;
+  typedef unsigned int uint_fast8_t;
+
+
+
+
+  typedef signed int int_fast16_t;
+  typedef unsigned int uint_fast16_t;
+
+
+
+
+  typedef signed int int_fast32_t;
+  typedef unsigned int uint_fast32_t;
+# 213 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/stdint.h" 3 4
+  typedef int_least64_t int_fast64_t;
+  typedef uint_least64_t uint_fast64_t;
+
+
+
+
+
+
+
+  typedef long long int intmax_t;
+# 231 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/stdint.h" 3 4
+  typedef long long unsigned int uintmax_t;
+# 243 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/stdint.h" 3 4
+typedef signed int intptr_t;
+typedef unsigned int uintptr_t;
+# 4 "c:\\programs86\\yagarto-20121222\\bin\\../lib/gcc/arm-none-eabi/4.7.2/include/stdint.h" 2 3 4
+# 204 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/common.h" 2
+
+
+
+
+
+typedef enum BOOL {FALSE = 0, TRUE = 1} BOOL;
+
+
+
+
+typedef struct{} FILE;
+# 227 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/common.h"
+static inline int abs(int x) {return x >= 0 ? x : -x;}
+# 252 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/common.h"
+void *alloca(size_t size);
+
+typedef enum {
+    RES_CLNK = 0x636C6E6B,
+    RES_CTLG = 0x63746C67,
+    RES_DCOL = 0x64636F6C,
+    RES_DLOG = 0x646C6F67,
+    RES_DTST = 0x64747374,
+    RES_GEOG = 0x67656F67,
+    RES_MATH = 0x6D617468,
+    RES_MWIZ = 0x6D77697A,
+    RES_NTPD = 0x6E747064,
+    RES_PGED = 0x70676564,
+    RES_QCKP = 0x71636B70,
+    RES_QUES = 0x71756573,
+    RES_SCPD = 0x73637064,
+    RES_SYST = 0x73797374,
+    RES_TBLT = 0x74626C74,
+} e_resourceID;
+# 286 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/common.h"
+typedef struct dstat {
+ char unknown1[13];
+  char filepath[266];
+  unsigned char fattribute;
+  unsigned short unknown2;
+  unsigned short unknown3;
+  unsigned short unknown4;
+  unsigned short unknown5;
+  unsigned long fsize;
+  void *unknown6, *unknown7;
+  unsigned int unknown8;
+  unsigned short unknown9;
+} DSTAT;
+# 312 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/common.h"
+typedef int PCFD;
+# 353 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/common.h"
+struct stat {
+ unsigned short st_dev;
+ unsigned int st_ino;
+ unsigned int st_mode;
+ unsigned short st_nlink;
+ unsigned short st_uid;
+ unsigned short st_gid;
+ unsigned short st_rdev;
+ unsigned int st_size;
+ unsigned int st_atime;
+ unsigned int st_mtime;
+ unsigned int st_ctime;
+};
+
+
+# 1 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/libndls.h" 1
+# 29 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/libndls.h"
+# 1 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/types.h" 1 3 4
+# 20 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/types.h" 3 4
+# 1 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/_ansi.h" 1 3 4
+# 15 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/_ansi.h" 3 4
+# 1 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/newlib.h" 1 3 4
+# 16 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/_ansi.h" 2 3 4
+# 1 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/config.h" 1 3 4
+
+
+
+# 1 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/machine/ieeefp.h" 1 3 4
+# 5 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/config.h" 2 3 4
+# 1 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/features.h" 1 3 4
+# 6 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/config.h" 2 3 4
+# 17 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/_ansi.h" 2 3 4
+# 21 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/types.h" 2 3 4
+
+
+
+
+# 1 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/machine/_types.h" 1 3 4
+
+
+
+
+
+
+# 1 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/machine/_default_types.h" 1 3 4
+# 26 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/machine/_default_types.h" 3 4
+typedef signed char __int8_t ;
+typedef unsigned char __uint8_t ;
+# 36 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/machine/_default_types.h" 3 4
+typedef signed short __int16_t;
+typedef unsigned short __uint16_t;
+# 46 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/machine/_default_types.h" 3 4
+typedef __int16_t __int_least16_t;
+typedef __uint16_t __uint_least16_t;
+# 58 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/machine/_default_types.h" 3 4
+typedef signed int __int32_t;
+typedef unsigned int __uint32_t;
+# 76 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/machine/_default_types.h" 3 4
+typedef __int32_t __int_least32_t;
+typedef __uint32_t __uint_least32_t;
+# 99 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/machine/_default_types.h" 3 4
+typedef signed long long __int64_t;
+typedef unsigned long long __uint64_t;
+# 8 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/machine/_types.h" 2 3 4
+# 26 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/types.h" 2 3 4
+# 61 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/types.h" 3 4
+# 1 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/_types.h" 1 3 4
+# 13 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/_types.h" 3 4
+# 1 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/lock.h" 1 3 4
+
+
+
+
+
+typedef int _LOCK_T;
+typedef int _LOCK_RECURSIVE_T;
+# 14 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/_types.h" 2 3 4
+
+
+typedef long _off_t;
+
+
+
+
+
+
+
+typedef short __dev_t;
+
+
+
+
+typedef unsigned short __uid_t;
+
+
+typedef unsigned short __gid_t;
+
+
+
+__extension__ typedef long long _off64_t;
+
+
+
+
+
+
+
+typedef long _fpos_t;
+# 56 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/_types.h" 3 4
+typedef int _ssize_t;
+
+
+
+
+
+
+# 1 "c:\\programs86\\yagarto-20121222\\bin\\../lib/gcc/arm-none-eabi/4.7.2/include/stddef.h" 1 3 4
+# 354 "c:\\programs86\\yagarto-20121222\\bin\\../lib/gcc/arm-none-eabi/4.7.2/include/stddef.h" 3 4
+typedef unsigned int wint_t;
+# 64 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/_types.h" 2 3 4
+
+
+
+typedef struct
+{
+  int __count;
+  union
+  {
+    wint_t __wch;
+    unsigned char __wchb[4];
+  } __value;
+} _mbstate_t;
+
+
+
+typedef _LOCK_RECURSIVE_T _flock_t;
+
+
+
+
+typedef void *_iconv_t;
+# 62 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/types.h" 2 3 4
+
+
+
+
+
+
+
+# 1 "c:\\programs86\\yagarto-20121222\\bin\\../lib/gcc/arm-none-eabi/4.7.2/include/stddef.h" 1 3 4
+# 70 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/types.h" 2 3 4
+# 1 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/machine/types.h" 1 3 4
+# 19 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/machine/types.h" 3 4
+typedef long int __off_t;
+typedef int __pid_t;
+
+__extension__ typedef long long int __loff_t;
+# 71 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/types.h" 2 3 4
+# 92 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/types.h" 3 4
+typedef unsigned char u_char;
+typedef unsigned short u_short;
+typedef unsigned int u_int;
+typedef unsigned long u_long;
+
+
+
+typedef unsigned short ushort;
+typedef unsigned int uint;
+typedef unsigned long ulong;
+
+
+
+typedef unsigned long clock_t;
+
+
+
+
+typedef long time_t;
+
+
+
+
+struct timespec {
+  time_t tv_sec;
+  long tv_nsec;
+};
+
+struct itimerspec {
+  struct timespec it_interval;
+  struct timespec it_value;
+};
+
+
+typedef long daddr_t;
+typedef char * caddr_t;
+
+
+
+
+
+
+typedef unsigned short ino_t;
+# 163 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/types.h" 3 4
+typedef _off_t off_t;
+typedef __dev_t dev_t;
+typedef __uid_t uid_t;
+typedef __gid_t gid_t;
+
+
+
+
+
+typedef int pid_t;
+
+
+
+
+
+
+
+typedef long key_t;
+
+typedef _ssize_t ssize_t;
+# 196 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/types.h" 3 4
+typedef unsigned int mode_t __attribute__ ((__mode__ (__SI__)));
+
+
+
+
+typedef unsigned short nlink_t;
+# 223 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/types.h" 3 4
+typedef long fd_mask;
+
+
+
+
+
+
+
+typedef struct _types_fd_set {
+ fd_mask fds_bits[(((64)+(((sizeof (fd_mask) * 8))-1))/((sizeof (fd_mask) * 8)))];
+} _types_fd_set;
+# 254 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/types.h" 3 4
+typedef unsigned long clockid_t;
+
+
+
+
+typedef unsigned long timer_t;
+
+
+
+typedef unsigned long useconds_t;
+typedef long suseconds_t;
+# 30 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/libndls.h" 2
+# 1 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/usbdi.h" 1
+# 44 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/usbdi.h"
+# 1 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/queue.h" 1 3 4
+# 40 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/queue.h" 3 4
+# 1 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/machine/ansi.h" 1 3 4
+# 41 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/queue.h" 2 3 4
+# 45 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/usbdi.h" 2
+# 1 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/bsdcompat.h" 1
+
+
+
+
+
+
+typedef uint8_t u_int8_t;
+typedef uint16_t u_int16_t;
+typedef uint32_t u_int32_t;
+typedef struct device *device_t;
+
+
+
+
+
+struct clist {
+        int c_cc;
+        int c_cbcount;
+        int c_cbmax;
+        int c_cbreserved;
+        char *c_cf;
+        char *c_cl;
+};
+# 46 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/usbdi.h" 2
+# 1 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/usb.h" 1
+# 47 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/usb.h"
+# 1 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/time.h" 1 3 4
+# 17 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/time.h" 3 4
+struct timeval {
+  time_t tv_sec;
+  suseconds_t tv_usec;
+};
+
+struct timezone {
+  int tz_minuteswest;
+  int tz_dsttime;
+};
+# 37 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/time.h" 3 4
+struct itimerval {
+  struct timeval it_interval;
+  struct timeval it_value;
+};
+# 74 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/sys/time.h" 3 4
+int gettimeofday (struct timeval *__p, void *__tz);
+int settimeofday (const struct timeval *, const struct timezone *);
+int utimes (const char *__path, const struct timeval *__tvp);
+int getitimer (int __which, struct itimerval *__value);
+int setitimer (int __which, const struct itimerval *__value, struct itimerval *__ovalue)
+                                 ;
+# 48 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/usb.h" 2
+# 90 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/usb.h"
+typedef u_int8_t uByte;
+typedef u_int8_t uWord[2];
+typedef u_int8_t uDWord[4];
+# 117 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/usb.h"
+typedef struct {
+        uByte bmRequestType;
+        uByte bRequest;
+        uWord wValue;
+        uWord wIndex;
+        uWord wLength;
+} __attribute__((packed)) usb_device_request_t;
+# 196 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/usb.h"
+typedef struct {
+        uByte bLength;
+        uByte bDescriptorType;
+        uByte bDescriptorSubtype;
+} __attribute__((packed)) usb_descriptor_t;
+
+typedef struct {
+        uByte bLength;
+        uByte bDescriptorType;
+        uWord bcdUSB;
+
+
+        uByte bDeviceClass;
+        uByte bDeviceSubClass;
+        uByte bDeviceProtocol;
+        uByte bMaxPacketSize;
+
+        uWord idVendor;
+        uWord idProduct;
+        uWord bcdDevice;
+        uByte iManufacturer;
+        uByte iProduct;
+        uByte iSerialNumber;
+        uByte bNumConfigurations;
+} __attribute__((packed)) usb_device_descriptor_t;
+
+
+typedef struct {
+        uByte bLength;
+        uByte bDescriptorType;
+        uWord wTotalLength;
+        uByte bNumInterface;
+        uByte bConfigurationValue;
+        uByte iConfiguration;
+        uByte bmAttributes;
+
+
+
+        uByte bMaxPower;
+
+} __attribute__((packed)) usb_config_descriptor_t;
+
+
+typedef struct {
+        uByte bLength;
+        uByte bDescriptorType;
+        uByte bInterfaceNumber;
+        uByte bAlternateSetting;
+        uByte bNumEndpoints;
+        uByte bInterfaceClass;
+        uByte bInterfaceSubClass;
+        uByte bInterfaceProtocol;
+        uByte iInterface;
+} __attribute__((packed)) usb_interface_descriptor_t;
+
+
+typedef struct {
+        uByte bLength;
+        uByte bDescriptorType;
+        uByte bEndpointAddress;
+
+
+
+
+
+
+        uByte bmAttributes;
+# 274 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/usb.h"
+        uWord wMaxPacketSize;
+        uByte bInterval;
+} __attribute__((packed)) usb_endpoint_descriptor_t;
+
+
+typedef struct {
+        uByte bLength;
+        uByte bDescriptorType;
+        uWord bString[127];
+} __attribute__((packed)) usb_string_descriptor_t;
+# 312 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/usb.h"
+typedef struct {
+        uByte bDescLength;
+        uByte bDescriptorType;
+        uByte bNbrPorts;
+        uWord wHubCharacteristics;
+# 332 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/usb.h"
+        uByte bPwrOn2PwrGood;
+
+        uByte bHubContrCurrent;
+        uByte DeviceRemovable[32];
+
+
+                         uByte PortPowerCtrlMask[1];
+} __attribute__((packed)) usb_hub_descriptor_t;
+
+
+typedef struct {
+        uByte bLength;
+        uByte bDescriptorType;
+        uWord bcdUSB;
+        uByte bDeviceClass;
+        uByte bDeviceSubClass;
+        uByte bDeviceProtocol;
+        uByte bMaxPacketSize0;
+        uByte bNumConfigurations;
+        uByte bReserved;
+} __attribute__((packed)) usb_device_qualifier_t;
+
+
+typedef struct {
+        uByte bLength;
+        uByte bDescriptorType;
+        uByte bmAttributes;
+
+
+} __attribute__((packed)) usb_otg_descriptor_t;
+
+
+
+
+
+
+typedef struct {
+        uWord wStatus;
+
+
+
+
+
+} __attribute__((packed)) usb_status_t;
+
+typedef struct {
+        uWord wHubStatus;
+
+
+        uWord wHubChange;
+} __attribute__((packed)) usb_hub_status_t;
+
+typedef struct {
+        uWord wPortStatus;
+# 396 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/usb.h"
+        uWord wPortChange;
+
+
+
+
+
+} __attribute__((packed)) usb_port_status_t;
+# 551 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/usb.h"
+struct usb_ctl_request {
+        int ucr_addr;
+        usb_device_request_t ucr_request;
+        void *ucr_data;
+        int ucr_flags;
+
+        int ucr_actlen;
+};
+
+struct usb_alt_interface {
+        int uai_config_index;
+        int uai_interface_index;
+        int uai_alt_no;
+};
+
+
+
+
+struct usb_config_desc {
+        int ucd_config_index;
+        usb_config_descriptor_t ucd_desc;
+};
+
+struct usb_interface_desc {
+        int uid_config_index;
+        int uid_interface_index;
+        int uid_alt_index;
+        usb_interface_descriptor_t uid_desc;
+};
+
+struct usb_endpoint_desc {
+        int ued_config_index;
+        int ued_interface_index;
+        int ued_alt_index;
+        int ued_endpoint_index;
+        usb_endpoint_descriptor_t ued_desc;
+};
+
+struct usb_full_desc {
+        int ufd_config_index;
+        u_int ufd_size;
+        u_char *ufd_data;
+};
+
+struct usb_string_desc {
+        int usd_string_index;
+        int usd_language_id;
+        usb_string_descriptor_t usd_desc;
+};
+
+struct usb_ctl_report_desc {
+        int ucrd_size;
+        u_char ucrd_data[1024];
+};
+
+typedef struct { u_int32_t cookie; } usb_event_cookie_t;
+
+
+
+struct usb_device_info {
+        u_int8_t udi_bus;
+        u_int8_t udi_addr;
+        usb_event_cookie_t udi_cookie;
+        char udi_product[128];
+        char udi_vendor[128];
+        char udi_release[8];
+        u_int16_t udi_productNo;
+        u_int16_t udi_vendorNo;
+        u_int16_t udi_releaseNo;
+        u_int8_t udi_class;
+        u_int8_t udi_subclass;
+        u_int8_t udi_protocol;
+        u_int8_t udi_config;
+        u_int8_t udi_speed;
+
+
+
+        int udi_power;
+        int udi_nports;
+        char udi_devnames[4][16];
+        u_int8_t udi_ports[16];
+
+
+
+
+};
+
+struct usb_ctl_report {
+        int ucr_report;
+        u_char ucr_data[1024];
+};
+
+struct usb_device_stats {
+        u_long uds_requests[4];
+};
+
+
+struct usb_event {
+        int ue_type;
+# 658 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/usb.h"
+        struct timespec ue_time;
+        union {
+                struct {
+                        int ue_bus;
+                } ue_ctrlr;
+                struct usb_device_info ue_device;
+                struct {
+                        usb_event_cookie_t ue_cookie;
+                        char ue_devname[16];
+                } ue_driver;
+        } u;
+};
+# 47 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/usbdi.h" 2
+
+typedef struct usbd_bus *usbd_bus_handle;
+typedef struct usbd_device *usbd_device_handle;
+typedef struct usbd_interface *usbd_interface_handle;
+typedef struct usbd_pipe *usbd_pipe_handle;
+typedef struct usbd_xfer *usbd_xfer_handle;
+typedef void *usbd_private_handle;
+
+typedef enum {
+ USBD_NORMAL_COMPLETION = 0,
+ USBD_IN_PROGRESS,
+
+ USBD_PENDING_REQUESTS,
+ USBD_NOT_STARTED,
+ USBD_INVAL,
+ USBD_NOMEM,
+ USBD_CANCELLED,
+ USBD_BAD_ADDRESS,
+ USBD_IN_USE,
+ USBD_NO_ADDR,
+ USBD_SET_ADDR_FAILED,
+ USBD_NO_POWER,
+ USBD_TOO_DEEP,
+ USBD_IOERROR,
+ USBD_NOT_CONFIGURED,
+ USBD_TIMEOUT,
+ USBD_SHORT_XFER,
+ USBD_STALLED,
+ USBD_INTERRUPTED,
+
+ USBD_ERROR_MAX
+} usbd_status;
+
+typedef void (*usbd_callback)(usbd_xfer_handle, usbd_private_handle,
+         usbd_status);
+# 111 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/usbdi.h"
+struct usb_task {
+ struct { struct usb_task *tqe_next; struct usb_task **tqe_prev; } next;
+ void (*fun)(void *);
+ void *arg;
+ char onqueue;
+};
+
+
+
+struct usb_devno {
+ u_int16_t ud_vendor;
+ u_int16_t ud_product;
+};
+
+
+
+
+
+
+struct usb_attach_arg {
+ int port;
+ int configno;
+ int ifaceno;
+ int vendor;
+ int product;
+ int release;
+ usbd_device_handle device;
+ usbd_interface_handle iface;
+ int usegeneric;
+ usbd_interface_handle *ifaces;
+ int nifaces;
+};
+# 31 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/libndls.h" 2
+
+
+
+
+typedef struct {
+ uint16_t width;
+ uint16_t height;
+} touchpad_info_t;
+
+typedef struct {
+ unsigned char contact;
+ unsigned char proximity;
+ uint16_t x;
+ uint16_t y;
+ unsigned char x_velocity;
+ unsigned char y_velocity;
+ uint16_t dummy;
+ unsigned char pressed;
+ unsigned char arrow;
+} touchpad_report_t;
+
+typedef enum tpad_arrow {TPAD_ARROW_NONE, TPAD_ARROW_UP, TPAD_ARROW_UPRIGHT, TPAD_ARROW_RIGHT, TPAD_ARROW_RIGHTDOWN, TPAD_ARROW_DOWN, TPAD_ARROW_DOWNLEFT, TPAD_ARROW_LEFT, TPAD_ARROW_LEFTUP, TPAD_ARROW_CLICK} tpad_arrow_t;
+
+
+
+
+
+
+
+# 1 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/os.h" 1
+# 61 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/libndls.h" 2
+
+void assert_ndless_rev(unsigned required_rev);
+BOOL any_key_pressed(void);
+void clear_cache(void);
+void clrscr(void);
+int enable_relative_paths(char **argv);
+int feof(FILE * stream);
+char *fgets(char * str, int num, FILE *stream);
+int fputs(const char *str, FILE *stream);
+void idle(void);
+int isalnum(int c);
+int iscntrl(int c);
+BOOL lcd_isincolor(void);
+void lcd_incolor(void);
+void lcd_ingray(void);
+void nputs(const char *str);
+void nprintf(const char *fmt, ...);
+BOOL on_key_pressed(void);
+void refresh_osscr(void);
+void rewind(FILE * stream);
+unsigned _scrsize(void);
+unsigned set_cpu_speed(unsigned speed);
+unsigned _show_msgbox(const char *title, const char *msg, unsigned button_num, ...);
+int show_msg_user_input(const char * title, const char * msg, char * defaultvalue, char ** value_ref);
+int show_1numeric_input(const char * title, const char * subtitle, const char * msg, int * value_ref, int min_value, int max_value);
+int show_2numeric_input(const char * title, const char * subtitle, const char * msg1, int * value1_ref, int min_value1, int max_value1, const char * msg2, int * value2_ref, int min_value2, int max_value2);
+void sleep(unsigned millisec);
+size_t strcspn(const char * str1, const char * str2);
+size_t strspn(const char * str1, const char * str2);
+touchpad_info_t *touchpad_getinfo(void);
+int touchpad_scan(touchpad_report_t *report);
+BOOL touchpad_arrow_pressed(tpad_arrow_t arrow);
+int truncate(const char *path, off_t length);
+usbd_status usbd_set_idle(usbd_interface_handle iface, int duration, int id);
+usbd_status usbd_set_protocol(usbd_interface_handle iface, int report);
+void wait_key_pressed(void);
+void wait_no_key_pressed(void);
+
+void cfg_open(void);
+void cfg_open_file(const char *filepath);
+void cfg_close(void);
+char *cfg_get(const char *key);
+void cfg_register_fileext(const char *ext, const char *prgm);
+void cfg_register_fileext_file(const char *fielpath, const char *ext, const char *prgm);
+
+
+BOOL _is_touchpad(void);
+
+
+static inline void halt(void) {
+ __asm volatile("0: b 0b");
+}
+
+static inline void bkpt(void) {
+ asm(".long 0xE1212374");
+}
+
+
+
+
+
+unsigned hwtype(void);
+# 369 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/common.h" 2
+
+
+
+typedef struct {
+  int row, col, tpad_row, tpad_col;
+  tpad_arrow_t tpad_arrow;
+} t_key;
+# 17 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/os.h" 2
+
+
+
+
+
+# 1 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/syscalls.h" 1
+# 23 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/os.h" 2
+# 33 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/os.h"
+extern int __base;
+# 161 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/os.h"
+static __attribute__ ((unused)) unsigned _syscallvar_savedlr;
+# 223 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/os.h"
+typedef struct {
+  char * str;
+  int len;
+  int chunck_size;
+  int unknown_field;
+} * String;
+
+static inline String string_new(void) { register unsigned __r0 __asm("r0"); __asm volatile( " swi " "209" :"=r" (__r0) :: "memory", "r1", "r2", "r3", "r12", "lr"); return (String)__r0; }
+static inline void string_free(String __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "210" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (void)__r0; }
+static inline char * string_to_ascii(String __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "211" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (char *)__r0; }
+static inline void string_lower(String __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "212" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (void)__r0; }
+static inline char string_charAt(String __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "213" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (char)__r0; }
+static inline int string_concat_utf16(String __param1, const char * __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "214" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline int string_set_ascii(String __param1, const char * __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "215" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline int string_set_utf16(String __param1, const char * __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "216" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline int string_indexOf_utf16(String __param1, int __param2, const char * __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "217" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (int)__r0; }
+static inline int string_last_indexOf_utf16(String __param1, int __param2, const char * __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "218" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (int)__r0; }
+static inline int string_compareTo_utf16(String __param1, const char * __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "219" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline char * string_substring(String __param1, String __param2, int __param3, int __param4) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; register unsigned __r3 __asm("r3") = (unsigned)__param4; __asm volatile( " swi " "220" : "=r" (__r0), "=r" (__r1), "=r" (__r2), "=r" (__r3) : "r" (__r0), "r" (__r1), "r" (__r2) , "r" (__r3) : "memory", "r12", "lr"); return (char *)__r0; }
+static inline void string_erase(String __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "221" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (void)__r0; }
+static inline void string_truncate(String __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "222" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (void)__r0; }
+static inline char * string_substring_utf16(String __param1, const char * __param2, int * __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "223" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (char *)__r0; }
+static inline int string_insert_replace_utf16(String __param1, const char * __param2, int __param3, int __param4) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; register unsigned __r3 __asm("r3") = (unsigned)__param4; __asm volatile( " swi " "224" : "=r" (__r0), "=r" (__r1), "=r" (__r2), "=r" (__r3) : "r" (__r0), "r" (__r1), "r" (__r2) , "r" (__r3) : "memory", "r12", "lr"); return (int)__r0; }
+static inline int string_insert_utf16(String __param1, const char * __param2, int __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "225" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (int)__r0; }
+static __attribute__((unused)) int __attribute__((__format__(__printf__,2,3))) __attribute__((naked)) string_sprintf_utf16(__attribute__((unused)) String arg0, __attribute__((unused)) const char * arg1, ...) { register unsigned __r0 __asm("r0"); __asm volatile( " push {r4, r5} \n" " ldr " "r4" ", 1f \n" " ldr " "r5" ", 1f+4 \n" "0:	\n" " add " "r4" ", pc, " "r4" " \n" " ldr " "r4" ", [" "r4" ", " "r5" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " str lr, [r4] \n" " pop {r4, r5} \n" " swi " "226" "\n" " ldr " "r1" ", 1f \n" " ldr " "r2" ", 1f+4 \n" "0:	\n" " add " "r1" ", pc, " "r1" " \n" " ldr " "r1" ", [" "r1" ", " "r2" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " ldr pc, [r1] \n" : "=r" (__r0):: "memory", "r1", "r2", "r3"); return (int)__r0; }
+
+static inline int read_unaligned_longword(void * __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "35" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline int read_unaligned_word(void * __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "36" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline void ascii2utf16(void * __param1, const char * __param2, int __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "13" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (void)__r0; }
+static inline void utf162ascii(char * __param1, void * __param2, int __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "201" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (void)__r0; }
+static inline size_t utf16_strlen(const char * __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "202" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (size_t)__r0; }
+static inline void show_dialog_box2_(int __param1, const char * __param2, const char * __param3, char * __param4) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; register unsigned __r3 __asm("r3") = (unsigned)__param4; __asm volatile( " swi " "30" : "=r" (__r0), "=r" (__r1), "=r" (__r2), "=r" (__r3) : "r" (__r0), "r" (__r1), "r" (__r2) , "r" (__r3) : "memory", "r12", "lr"); return (void)__r0; }
+static int __attribute__((naked)) _show_msgbox_2b_swi() { register unsigned __r0 __asm("r0"); __asm volatile( " push {r4, r5} \n" " ldr " "r4" ", 1f \n" " ldr " "r5" ", 1f+4 \n" "0:	\n" " add " "r4" ", pc, " "r4" " \n" " ldr " "r4" ", [" "r4" ", " "r5" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " str lr, [r4] \n" " pop {r4, r5} \n" " swi " "93" "\n" " ldr " "r1" ", 1f \n" " ldr " "r2" ", 1f+4 \n" "0:	\n" " add " "r1" ", pc, " "r1" " \n" " ldr " "r1" ", [" "r1" ", " "r2" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " ldr pc, [r1] \n" : "=r" (__r0):: "memory", "r1", "r2", "r3"); return (int)__r0; } static inline int _show_msgbox_2b(int undef, const char * title, const char *msg, char *button1, int button1_code, char *button2, int button2_code, char undef_buf[8]) {return _show_msgbox_2b_swi(undef, title, msg, button1, button1_code, button2, button2_code, undef_buf);}
+static int __attribute__((naked)) _show_msgbox_3b_swi() { register unsigned __r0 __asm("r0"); __asm volatile( " push {r4, r5} \n" " ldr " "r4" ", 1f \n" " ldr " "r5" ", 1f+4 \n" "0:	\n" " add " "r4" ", pc, " "r4" " \n" " ldr " "r4" ", [" "r4" ", " "r5" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " str lr, [r4] \n" " pop {r4, r5} \n" " swi " "94" "\n" " ldr " "r1" ", 1f \n" " ldr " "r2" ", 1f+4 \n" "0:	\n" " add " "r1" ", pc, " "r1" " \n" " ldr " "r1" ", [" "r1" ", " "r2" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " ldr pc, [r1] \n" : "=r" (__r0):: "memory", "r1", "r2", "r3"); return (int)__r0; } static inline int _show_msgbox_3b(int undef, const char * title, const char *msg, char *button1, int button1_code, char *button2, int button2_code, char *button3, int button3_code, char undef_buf[8]) {return _show_msgbox_3b_swi(undef, title, msg, button1, button1_code, button2, button2_code, button3, button3_code, undef_buf);}
+
+static int __attribute__((naked)) _show_1NumericInput_swi() { register unsigned __r0 __asm("r0"); __asm volatile( " push {r4, r5} \n" " ldr " "r4" ", 1f \n" " ldr " "r5" ", 1f+4 \n" "0:	\n" " add " "r4" ", pc, " "r4" " \n" " ldr " "r4" ", [" "r4" ", " "r5" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " str lr, [r4] \n" " pop {r4, r5} \n" " swi " "203" "\n" " ldr " "r1" ", 1f \n" " ldr " "r2" ", 1f+4 \n" "0:	\n" " add " "r1" ", pc, " "r1" " \n" " ldr " "r1" ", [" "r1" ", " "r2" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " ldr pc, [r1] \n" : "=r" (__r0):: "memory", "r1", "r2", "r3"); return (int)__r0; } static inline int _show_1NumericInput(int undef, const char *title, const char *subtitle, const char *input_title, int *value_ref, unsigned undef2, int min_value, int max_value) {return _show_1NumericInput_swi(undef, title, subtitle, input_title, value_ref, undef2, min_value, max_value);}
+
+static int __attribute__((naked)) _show_2NumericInput_swi() { register unsigned __r0 __asm("r0"); __asm volatile( " push {r4, r5} \n" " ldr " "r4" ", 1f \n" " ldr " "r5" ", 1f+4 \n" "0:	\n" " add " "r4" ", pc, " "r4" " \n" " ldr " "r4" ", [" "r4" ", " "r5" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " str lr, [r4] \n" " pop {r4, r5} \n" " swi " "204" "\n" " ldr " "r1" ", 1f \n" " ldr " "r2" ", 1f+4 \n" "0:	\n" " add " "r1" ", pc, " "r1" " \n" " ldr " "r1" ", [" "r1" ", " "r2" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " ldr pc, [r1] \n" : "=r" (__r0):: "memory", "r1", "r2", "r3"); return (int)__r0; } static inline int _show_2NumericInput(int undef, const char *title, const char *subtitle, const char *input1_title, int *value1_ref, unsigned undef2, int min_value1, int max_value1, const char *input2_title, int *value2_ref, unsigned undef3, int min_value2, int max_value2) {return _show_2NumericInput_swi(undef, title, subtitle, input1_title, value1_ref, undef2, min_value1, max_value1, input2_title, value2_ref, undef3, min_value2, max_value2);}
+
+static int __attribute__((naked)) _show_msgUserInput_swi() { register unsigned __r0 __asm("r0"); __asm volatile( " push {r4, r5} \n" " ldr " "r4" ", 1f \n" " ldr " "r5" ", 1f+4 \n" "0:	\n" " add " "r4" ", pc, " "r4" " \n" " ldr " "r4" ", [" "r4" ", " "r5" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " str lr, [r4] \n" " pop {r4, r5} \n" " swi " "205" "\n" " ldr " "r1" ", 1f \n" " ldr " "r2" ", 1f+4 \n" "0:	\n" " add " "r1" ", pc, " "r1" " \n" " ldr " "r1" ", [" "r1" ", " "r2" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " ldr pc, [r1] \n" : "=r" (__r0):: "memory", "r1", "r2", "r3"); return (int)__r0; } static inline int _show_msgUserInput(int undef, String * struct_ref , const char * title, const char * input_title) {return _show_msgUserInput_swi(undef, struct_ref, title, input_title);}
+
+static inline int * errno_addr(void) { register unsigned __r0 __asm("r0"); __asm volatile( " swi " "61" :"=r" (__r0) :: "memory", "r1", "r2", "r3", "r12", "lr"); return (int *)__r0; }
+
+
+static inline void srand(unsigned int __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "207" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (void)__r0; }
+static inline int rand(void) { register unsigned __r0 __asm("r0"); __asm volatile( " swi " "206" :"=r" (__r0) :: "memory", "r1", "r2", "r3", "r12", "lr"); return (int)__r0; }
+
+static inline int isalpha(int __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "38" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline int isascii(int __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "39" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline int isdigit(int __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "40" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline int islower(int __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "41" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline int isprint(int __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "42" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline int isspace(int __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "43" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline int isupper(int __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "44" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline int isxdigit(int __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "45" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline int tolower(int __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "46" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline int toupper(int __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "62" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline int atoi(const char * __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "47" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline double atof(const char * __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "48" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (double)__r0; }
+static inline double strtod(const char * __param1, char ** __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "63" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (double)__r0; }
+static inline long int strtol(const char * __param1, char ** __param2, int __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "64" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (long int)__r0; }
+static inline unsigned long int strtoul(const char * __param1, char ** __param2, int __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "208" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (unsigned long int)__r0; }
+
+static inline void * malloc(size_t __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "5" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (void *)__r0; }
+static inline void free(void * __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "6" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (void)__r0; }
+static inline void * calloc(size_t __param1, size_t __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "49" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (void *)__r0; }
+static inline void * realloc(void * __param1, size_t __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "50" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (void *)__r0; }
+static inline void * memset(void * __param1, int __param2, size_t __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "7" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (void *)__r0; }
+static inline void * memcpy(void * __param1, const void * __param2, size_t __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "8" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (void *)__r0; }
+static inline int memcmp(const void * __param1, const void * __param2, size_t __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "9" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (int)__r0; }
+static inline void * memmove(void * __param1, const void * __param2, size_t __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "55" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (void *)__r0; }
+static inline void memrev(char * __param1, size_t __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "56" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (void)__r0; }
+static inline char * strcpy(char * __param1, const char * __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "27" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (char *)__r0; }
+static inline char * strncpy(char * __param1, const char * __param2, size_t __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "37" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (char *)__r0; }
+static inline int strcmp(const char * __param1, const char * __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "26" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (int)__r0; }
+
+static inline int strncmp(const char * __param1, const char * __param2, size_t __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "58" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (int)__r0; }
+static inline int strlen(const char * __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "29" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline char * strncat(char * __param1, const char * __param2, size_t __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "28" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (char *)__r0; }
+static inline char * strchr(const char * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "57" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (char *)__r0; }
+static inline char * strrchr(const char * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "31" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (char *)__r0; }
+static inline char * strpbrk(const char * __param1, const char * __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "51" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (char *)__r0; }
+static inline char * strerror(int __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "66" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (char *)__r0; }
+static inline char * strcat(char * __param1, const char * __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "67" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (char *)__r0; }
+static inline char * strstr(const char * __param1, const char * __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "68" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (char *)__r0; }
+static inline char * strtok(char * __param1, const char * __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "200" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (char *)__r0; }
+
+typedef __builtin_va_list va_list;
+
+
+
+
+
+static __attribute__((unused)) int __attribute__((__format__(__printf__,1,2))) __attribute__((naked)) printf(__attribute__((unused)) const char *format, ...) { register unsigned __r0 __asm("r0"); __asm volatile( " push {r4, r5} \n" " ldr " "r4" ", 1f \n" " ldr " "r5" ", 1f+4 \n" "0:	\n" " add " "r4" ", pc, " "r4" " \n" " ldr " "r4" ", [" "r4" ", " "r5" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " str lr, [r4] \n" " pop {r4, r5} \n" " swi " "10" "\n" " ldr " "r1" ", 1f \n" " ldr " "r2" ", 1f+4 \n" "0:	\n" " add " "r1" ", pc, " "r1" " \n" " ldr " "r1" ", [" "r1" ", " "r2" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " ldr pc, [r1] \n" : "=r" (__r0):: "memory", "r1", "r2", "r3"); return (int)__r0; }
+static __attribute__((unused)) int __attribute__((__format__(__printf__,2,3))) __attribute__((naked)) sprintf(__attribute__((unused)) char *s, __attribute__((unused)) const char *format, ...) { register unsigned __r0 __asm("r0"); __asm volatile( " push {r4, r5} \n" " ldr " "r4" ", 1f \n" " ldr " "r5" ", 1f+4 \n" "0:	\n" " add " "r4" ", pc, " "r4" " \n" " ldr " "r4" ", [" "r4" ", " "r5" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " str lr, [r4] \n" " pop {r4, r5} \n" " swi " "11" "\n" " ldr " "r1" ", 1f \n" " ldr " "r2" ", 1f+4 \n" "0:	\n" " add " "r1" ", pc, " "r1" " \n" " ldr " "r1" ", [" "r1" ", " "r2" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " ldr pc, [r1] \n" : "=r" (__r0):: "memory", "r1", "r2", "r3"); return (int)__r0; }
+static __attribute__((unused)) int __attribute__((__format__(__printf__,2,3))) __attribute__((naked)) fprintf(__attribute__((unused)) FILE *s, __attribute__((unused)) const char *format, ...) { register unsigned __r0 __asm("r0"); __asm volatile( " push {r4, r5} \n" " ldr " "r4" ", 1f \n" " ldr " "r5" ", 1f+4 \n" "0:	\n" " add " "r4" ", pc, " "r4" " \n" " ldr " "r4" ", [" "r4" ", " "r5" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " str lr, [r4] \n" " pop {r4, r5} \n" " swi " "12" "\n" " ldr " "r1" ", 1f \n" " ldr " "r2" ", 1f+4 \n" "0:	\n" " add " "r1" ", pc, " "r1" " \n" " ldr " "r1" ", [" "r1" ", " "r2" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " ldr pc, [r1] \n" : "=r" (__r0):: "memory", "r1", "r2", "r3"); return (int)__r0; }
+static __attribute__((unused)) int __attribute__((__format__(__scanf__,2,3))) __attribute__((naked)) sscanf(__attribute__((unused)) const char *s, __attribute__((unused)) const char * format, ...) { register unsigned __r0 __asm("r0"); __asm volatile( " push {r4, r5} \n" " ldr " "r4" ", 1f \n" " ldr " "r5" ", 1f+4 \n" "0:	\n" " add " "r4" ", pc, " "r4" " \n" " ldr " "r4" ", [" "r4" ", " "r5" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " str lr, [r4] \n" " pop {r4, r5} \n" " swi " "266" "\n" " ldr " "r1" ", 1f \n" " ldr " "r2" ", 1f+4 \n" "0:	\n" " add " "r1" ", pc, " "r1" " \n" " ldr " "r1" ", [" "r1" ", " "r2" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " ldr pc, [r1] \n" : "=r" (__r0):: "memory", "r1", "r2", "r3"); return (int)__r0; }
+
+
+static inline int _vfprintf(FILE * __param1, const char * __param2, void* __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "334" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (int)__r0; }
+
+
+static inline int _vprintf(const char * __param1, void* __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "333" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static __attribute__((unused)) int __attribute__((__format__(__printf__,3,4))) __attribute__((naked)) snprintf(__attribute__((unused)) char *str, __attribute__((unused)) size_t size, __attribute__((unused)) const char *format, ...) { register unsigned __r0 __asm("r0"); __asm volatile( " push {r4, r5} \n" " ldr " "r4" ", 1f \n" " ldr " "r5" ", 1f+4 \n" "0:	\n" " add " "r4" ", pc, " "r4" " \n" " ldr " "r4" ", [" "r4" ", " "r5" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " str lr, [r4] \n" " pop {r4, r5} \n" " swi " "332" "\n" " ldr " "r1" ", 1f \n" " ldr " "r2" ", 1f+4 \n" "0:	\n" " add " "r1" ", pc, " "r1" " \n" " ldr " "r1" ", [" "r1" ", " "r2" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " ldr pc, [r1] \n" : "=r" (__r0):: "memory", "r1", "r2", "r3"); return (int)__r0; }
+
+
+static inline int _vsnprintf(char * __param1, size_t __param2, const char * __param3, void* __param4) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; register unsigned __r3 __asm("r3") = (unsigned)__param4; __asm volatile( " swi " "335" : "=r" (__r0), "=r" (__r1), "=r" (__r2), "=r" (__r3) : "r" (__r0), "r" (__r1), "r" (__r2) , "r" (__r3) : "memory", "r12", "lr"); return (int)__r0; }
+
+
+static inline int _vsprintf(char* __param1, const char* __param2, void* __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "32" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (int)__r0; }
+
+static inline int puts(const char * __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "22" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline int fputc(int __param1, FILE * __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "54" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (int)__r0; }
+
+
+static inline int fgetc(FILE * __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "52" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int)__r0; }
+
+static inline int ungetc(int __param1, FILE * __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "65" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (int)__r0; }
+
+static inline FILE * stdin(void) { register unsigned __r0 __asm("r0"); __asm volatile( " swi " "0x800000|71" : "=r" (__r0) : "r" (__r0) : "r1", "r2", "r3", "r12", "lr"); return (FILE *)__r0; }
+
+static inline FILE * stdout(void) { register unsigned __r0 __asm("r0"); __asm volatile( " swi " "0x800000|72" : "=r" (__r0) : "r" (__r0) : "r1", "r2", "r3", "r12", "lr"); return (FILE *)__r0; }
+
+static inline FILE * stderr(void) { register unsigned __r0 __asm("r0"); __asm volatile( " swi " "0x800000|73" : "=r" (__r0) : "r" (__r0) : "r1", "r2", "r3", "r12", "lr"); return (FILE *)__r0; }
+
+
+static inline FILE * fopen(const char * __param1, const char * __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "0" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (FILE *)__r0; }
+static inline FILE * freopen(const char * __param1, const char * __param2, FILE * __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "60" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (FILE *)__r0; }
+static inline size_t fread(void * __param1, size_t __param2, size_t __param3, FILE * __param4) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; register unsigned __r3 __asm("r3") = (unsigned)__param4; __asm volatile( " swi " "1" : "=r" (__r0), "=r" (__r1), "=r" (__r2), "=r" (__r3) : "r" (__r0), "r" (__r1), "r" (__r2) , "r" (__r3) : "memory", "r12", "lr"); return (size_t)__r0; }
+static inline size_t fwrite(const void * __param1, size_t __param2, size_t __param3, FILE * __param4) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; register unsigned __r3 __asm("r3") = (unsigned)__param4; __asm volatile( " swi " "2" : "=r" (__r0), "=r" (__r1), "=r" (__r2), "=r" (__r3) : "r" (__r0), "r" (__r1), "r" (__r2) , "r" (__r3) : "memory", "r12", "lr"); return (size_t)__r0; }
+static inline int fflush(FILE * __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "69" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline int fclose(FILE * __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "3" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline int ferror(FILE * __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "74" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline int fseek(FILE * __param1, long int __param2, int __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "33" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (int)__r0; }
+static inline long int ftell(FILE * __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "89" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (long int)__r0; }
+static inline int remove(const char * __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "70" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int)__r0; }
+
+static inline int mkdir(const char * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "15" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline char * getcwd(char * __param1, size_t __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "265" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (char *)__r0; }
+static inline int chdir(char * __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "17" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline int rmdir(const char * __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "16" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline int stat(const char * __param1, struct stat * __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "18" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline int rename(const char * __param1, const char * __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "20" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline int unlink(const char * __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "19" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int)__r0; }
+typedef void DIR;
+struct dirent {
+ char d_name[0];
+};
+static inline DIR * opendir(const char * __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "95" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (DIR *)__r0; }
+static inline int closedir(DIR * __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "97" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline struct dirent * readdir(DIR * __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "96" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (struct dirent *)__r0; }
+
+typedef void NU_TASK;
+static inline int TCT_Local_Control_Interrupts(int __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "14" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline NU_TASK * TCC_Current_Task_Pointer(void) { register unsigned __r0 __asm("r0"); __asm volatile( " swi " "88" :"=r" (__r0) :: "memory", "r1", "r2", "r3", "r12", "lr"); return (NU_TASK *)__r0; }
+static inline int TCC_Terminate_Task(NU_TASK * __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "21" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int)__r0; }
+
+static inline int NU_Current_Dir(const char * __param1, const char * __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "34" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline int NU_Get_First(struct dstat * __param1, const char * __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "23" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline int NU_Get_Next(struct dstat * __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "24" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline void NU_Done(struct dstat * __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "25" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (void)__r0; }
+static inline int NU_Set_Current_Dir(const char * __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "53" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline PCFD NU_Open(char * __param1, unsigned __param2, unsigned __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "90" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (PCFD)__r0; }
+static inline int NU_Close(PCFD __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "91" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline int NU_Truncate(PCFD __param1, long __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "92" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (int)__r0; }
+
+static inline const char * get_documents_dir(void) { register unsigned __r0 __asm("r0"); __asm volatile( " swi " "297" :"=r" (__r0) :: "memory", "r1", "r2", "r3", "r12", "lr"); return (const char *)__r0; }
+
+
+static inline unsigned char * keypad_type(void) { register unsigned __r0 __asm("r0"); __asm volatile( " swi " "0x800000|59" : "=r" (__r0) : "r" (__r0) : "r1", "r2", "r3", "r12", "lr"); return (unsigned char *)__r0; }
+
+
+static inline int touchpad_read(unsigned char __param1, unsigned char __param2, void * __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "75" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (int)__r0; }
+
+static inline int touchpad_write(unsigned char __param1, unsigned char __param2, void * __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "76" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (int)__r0; }
+struct s_ns_event {
+ unsigned int timestamp;
+ unsigned short type;
+ unsigned short ascii;
+ unsigned int key;
+ unsigned int cursor_x;
+ unsigned int cursor_y;
+ unsigned int unknown;
+ unsigned short modifiers;
+ unsigned char click;
+};
+static inline int get_event(struct s_ns_event* __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "261" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline void send_key_event(struct s_ns_event* __param1, unsigned short __param2, BOOL __param3, BOOL __param4) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; register unsigned __r3 __asm("r3") = (unsigned)__param4; __asm volatile( " swi " "262" : "=r" (__r0), "=r" (__r1), "=r" (__r2), "=r" (__r3) : "r" (__r0), "r" (__r1), "r" (__r2) , "r" (__r3) : "memory", "r12", "lr"); return (void)__r0; }
+
+
+static inline void send_click_event(struct s_ns_event* __param1, unsigned short __param2, BOOL __param3, BOOL __param4) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; register unsigned __r3 __asm("r3") = (unsigned)__param4; __asm volatile( " swi " "263" : "=r" (__r0), "=r" (__r1), "=r" (__r2), "=r" (__r3) : "r" (__r0), "r" (__r1), "r" (__r2) , "r" (__r3) : "memory", "r12", "lr"); return (void)__r0; }
+static inline void send_pad_event(struct s_ns_event* __param1, unsigned short __param2, BOOL __param3, BOOL __param4) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; register unsigned __r3 __asm("r3") = (unsigned)__param4; __asm volatile( " swi " "264" : "=r" (__r0), "=r" (__r1), "=r" (__r2), "=r" (__r3) : "r" (__r0), "r" (__r1), "r" (__r2) , "r" (__r3) : "memory", "r12", "lr"); return (void)__r0; }
+
+static inline void refresh_homescr(void) { register unsigned __r0 __asm("r0"); __asm volatile( " swi " "198" :"=r" (__r0) :: "memory", "r1", "r2", "r3", "r12", "lr"); return (void)__r0; }
+static inline void refresh_docbrowser(int __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "199" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (void)__r0; }
+# 440 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/os.h"
+typedef void * (*zlib_alloc_func)(void * opaque, uint32_t items, uint32_t size);
+typedef void (*zlib_free_func) (void * opaque, void * address);
+
+struct internal_state;
+
+typedef struct z_stream_s {
+    uint8_t *next_in;
+    uint32_t avail_in;
+    uint32_t total_in;
+
+    uint8_t *next_out;
+    uint32_t avail_out;
+    uint32_t total_out;
+
+    char *msg;
+    struct internal_state *state;
+
+    zlib_alloc_func zalloc;
+    zlib_free_func zfree;
+    void * opaque;
+
+    uint8_t data_type;
+    uint32_t adler;
+    uint32_t reserved;
+} z_stream, *z_streamp;
+
+static inline uint32_t adler32(uint32_t __param1, const uint8_t * __param2, uint32_t __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "77" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (uint32_t)__r0; }
+static inline uint32_t crc32(uint32_t __param1, const uint8_t * __param2, uint32_t __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "78" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (uint32_t)__r0; }
+static inline uint32_t crc32_combine(uint32_t __param1, uint32_t __param2, uint32_t __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "79" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (uint32_t)__r0; }
+
+static inline const char * zlibVersion(void) { register unsigned __r0 __asm("r0"); __asm volatile( " swi " "80" :"=r" (__r0) :: "memory", "r1", "r2", "r3", "r12", "lr"); return (const char *)__r0; }
+static inline uint32_t zlibCompileFlags(void) { register unsigned __r0 __asm("r0"); __asm volatile( " swi " "81" :"=r" (__r0) :: "memory", "r1", "r2", "r3", "r12", "lr"); return (uint32_t)__r0; }
+
+static uint32_t __attribute__((naked)) deflateInit2__swi() { register unsigned __r0 __asm("r0"); __asm volatile( " push {r4, r5} \n" " ldr " "r4" ", 1f \n" " ldr " "r5" ", 1f+4 \n" "0:	\n" " add " "r4" ", pc, " "r4" " \n" " ldr " "r4" ", [" "r4" ", " "r5" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " str lr, [r4] \n" " pop {r4, r5} \n" " swi " "82" "\n" " ldr " "r1" ", 1f \n" " ldr " "r2" ", 1f+4 \n" "0:	\n" " add " "r1" ", pc, " "r1" " \n" " ldr " "r1" ", [" "r1" ", " "r2" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " ldr pc, [r1] \n" : "=r" (__r0):: "memory", "r1", "r2", "r3"); return (uint32_t)__r0; } static inline uint32_t deflateInit2_(z_streamp strm, uint32_t level, uint32_t method, uint32_t windowBits, uint32_t memLevel, uint32_t strategy, const char * version, uint32_t stream_size) {return deflateInit2__swi(strm, level, method, windowBits, memLevel, strategy, version, stream_size);}
+
+static inline uint32_t deflate(z_streamp __param1, uint32_t __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "83" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (uint32_t)__r0; }
+static inline uint32_t deflateEnd(z_streamp __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "84" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (uint32_t)__r0; }
+static inline uint32_t inflateInit2_(z_streamp __param1, uint32_t __param2, const char * __param3, uint32_t __param4) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; register unsigned __r3 __asm("r3") = (unsigned)__param4; __asm volatile( " swi " "85" : "=r" (__r0), "=r" (__r1), "=r" (__r2), "=r" (__r3) : "r" (__r0), "r" (__r1), "r" (__r2) , "r" (__r3) : "memory", "r12", "lr"); return (uint32_t)__r0; }
+static inline uint32_t inflate(z_streamp __param1, uint32_t __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "86" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (uint32_t)__r0; }
+static inline uint32_t inflateEnd(z_streamp __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "87" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (uint32_t)__r0; }
+
+# 1 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/lauxlib.h" 1
+# 11 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/lauxlib.h"
+# 1 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/lua.h" 1
+# 12 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/lua.h"
+# 1 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/luaconf.h" 1
+# 13 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/lua.h" 2
+# 46 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/lua.h"
+typedef struct lua_State lua_State;
+
+typedef int (*lua_CFunction) (lua_State *L);
+
+
+
+
+
+typedef const char * (*lua_Reader) (lua_State *L, void *ud, size_t *sz);
+
+typedef int (*lua_Writer) (lua_State *L, const void* p, size_t sz, void* ud);
+
+
+
+
+
+typedef void * (*lua_Alloc) (void *ud, void *ptr, size_t osize, size_t nsize);
+# 95 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/lua.h"
+typedef double lua_Number;
+
+
+
+typedef ptrdiff_t lua_Integer;
+# 237 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/lua.h"
+extern lua_Alloc (lua_getallocf) (lua_State *L, void **ud);
+extern void lua_setallocf (lua_State *L, lua_Alloc f, void *ud);
+# 317 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/lua.h"
+typedef struct lua_Debug lua_Debug;
+
+
+
+typedef void (*lua_Hook) (lua_State *L, lua_Debug *ar);
+
+
+
+
+extern const char *lua_getlocal (lua_State *L, const lua_Debug *ar, int n);
+extern const char *lua_setlocal (lua_State *L, const lua_Debug *ar, int n);
+extern const char *lua_getupvalue (lua_State *L, int funcindex, int n);
+extern const char *lua_setupvalue (lua_State *L, int funcindex, int n);
+
+extern int lua_sethook (lua_State *L, lua_Hook func, int mask, int count);
+extern lua_Hook lua_gethook (lua_State *L);
+extern int lua_gethookmask (lua_State *L);
+extern int lua_gethookcount (lua_State *L);
+
+
+struct lua_Debug {
+  int event;
+  const char *name;
+  const char *namewhat;
+  const char *what;
+  const char *source;
+  int currentline;
+  int nups;
+  int linedefined;
+  int lastlinedefined;
+  char short_src[60];
+
+  int i_ci;
+};
+# 12 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/lauxlib.h" 2
+# 24 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/lauxlib.h"
+typedef struct luaL_Reg {
+  const char *name;
+  lua_CFunction func;
+} luaL_Reg;
+# 100 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/lauxlib.h"
+typedef struct luaL_Buffer {
+  char *p;
+  int lvl;
+  lua_State *L;
+  char buffer[4096];
+} luaL_Buffer;
+# 482 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/os.h" 2
+static inline void luaL_register(lua_State * __param1, const char * __param2, const luaL_Reg * __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "98" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (void)__r0; }
+static inline const char * luaL_checklstring(lua_State * __param1, int __param2, size_t * __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "99" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (const char *)__r0; }
+static __attribute__((unused)) int __attribute__((naked)) luaL_error(__attribute__((unused)) lua_State *L, __attribute__((unused)) const char *fmt, ...) { register unsigned __r0 __asm("r0"); __asm volatile( " push {r4, r5} \n" " ldr " "r4" ", 1f \n" " ldr " "r5" ", 1f+4 \n" "0:	\n" " add " "r4" ", pc, " "r4" " \n" " ldr " "r4" ", [" "r4" ", " "r5" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " str lr, [r4] \n" " pop {r4, r5} \n" " swi " "100" "\n" " ldr " "r1" ", 1f \n" " ldr " "r2" ", 1f+4 \n" "0:	\n" " add " "r1" ", pc, " "r1" " \n" " ldr " "r1" ", [" "r1" ", " "r2" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " ldr pc, [r1] \n" : "=r" (__r0):: "memory", "r1", "r2", "r3"); return (int)__r0; }
+
+
+static inline void luaL_openlib(lua_State * __param1, const char * __param2, const luaL_Reg * __param3, int __param4) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; register unsigned __r3 __asm("r3") = (unsigned)__param4; __asm volatile( " swi " "e_luaL_openlib" : "=r" (__r0), "=r" (__r1), "=r" (__r2), "=r" (__r3) : "r" (__r0), "r" (__r1), "r" (__r2) , "r" (__r3) : "memory", "r12", "lr"); return (void)__r0; }
+static inline int luaL_getmetafield(lua_State * __param1, int __param2, const char * __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "102" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (int)__r0; }
+static inline int luaL_callmeta(lua_State * __param1, int __param2, const char * __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "103" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (int)__r0; }
+static inline int luaL_typerror(lua_State * __param1, int __param2, const char * __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "104" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (int)__r0; }
+static inline int luaL_argerror(lua_State * __param1, int __param2, const char * __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "105" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (int)__r0; }
+static inline const char* luaL_optlstring(lua_State * __param1, int __param2, const char * __param3, size_t * __param4) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; register unsigned __r3 __asm("r3") = (unsigned)__param4; __asm volatile( " swi " "106" : "=r" (__r0), "=r" (__r1), "=r" (__r2), "=r" (__r3) : "r" (__r0), "r" (__r1), "r" (__r2) , "r" (__r3) : "memory", "r12", "lr"); return (const char*)__r0; }
+static inline lua_Number luaL_checknumber(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "107" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (lua_Number)__r0; }
+static inline lua_Number luaL_optnumber(lua_State * __param1, int __param2, lua_Number __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "108" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (lua_Number)__r0; }
+
+static inline lua_Integer luaL_checkinteger(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "109" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (lua_Integer)__r0; }
+static inline lua_Integer luaL_optinteger(lua_State * __param1, int __param2, lua_Integer __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "110" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (lua_Integer)__r0; }
+
+static inline void luaL_checkstack(lua_State * __param1, int __param2, const char * __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "111" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (void)__r0; }
+static inline void luaL_checktype(lua_State * __param1, int __param2, int __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "112" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (void)__r0; };
+static inline void luaL_checkany(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "113" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (void)__r0; };
+
+static inline int luaL_newmetatable(lua_State * __param1, const char * __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "114" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline void * luaL_checkudata(lua_State * __param1, int __param2, const char * __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "115" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (void *)__r0; }
+
+static inline void luaL_where(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "116" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (void)__r0; }
+
+static inline int luaL_checkoption(lua_State * __param1, int __param2, const char * __param3, const char *const* __param4) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; register unsigned __r3 __asm("r3") = (unsigned)__param4; __asm volatile( " swi " "117" : "=r" (__r0), "=r" (__r1), "=r" (__r2), "=r" (__r3) : "r" (__r0), "r" (__r1), "r" (__r2) , "r" (__r3) : "memory", "r12", "lr"); return (int)__r0; }
+
+static inline int luaL_ref(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "118" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline void luaL_unref(lua_State * __param1, int __param2, int __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "119" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (void)__r0; }
+
+static inline int luaL_loadfile(lua_State * __param1, const char * __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "120" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline int luaL_loadbuffer(lua_State * __param1, const char * __param2, size_t __param3, const char * __param4) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; register unsigned __r3 __asm("r3") = (unsigned)__param4; __asm volatile( " swi " "121" : "=r" (__r0), "=r" (__r1), "=r" (__r2), "=r" (__r3) : "r" (__r0), "r" (__r1), "r" (__r2) , "r" (__r3) : "memory", "r12", "lr"); return (int)__r0; }
+static inline int luaL_loadstring(lua_State * __param1, const char * __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "122" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (int)__r0; }
+
+static inline lua_State * luaL_newstate(void) { register unsigned __r0 __asm("r0"); __asm volatile( " swi " "123" :"=r" (__r0) :: "memory", "r1", "r2", "r3", "r12", "lr"); return (lua_State *)__r0; }
+
+static inline const char * luaL_gsub(lua_State * __param1, const char * __param2, const char * __param3, const char * __param4) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; register unsigned __r3 __asm("r3") = (unsigned)__param4; __asm volatile( " swi " "124" : "=r" (__r0), "=r" (__r1), "=r" (__r2), "=r" (__r3) : "r" (__r0), "r" (__r1), "r" (__r2) , "r" (__r3) : "memory", "r12", "lr"); return (const char *)__r0; }
+
+static inline const char * luaL_findtable(lua_State * __param1, int __param2, const char * __param3, int __param4) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; register unsigned __r3 __asm("r3") = (unsigned)__param4; __asm volatile( " swi " "125" : "=r" (__r0), "=r" (__r1), "=r" (__r2), "=r" (__r3) : "r" (__r0), "r" (__r1), "r" (__r2) , "r" (__r3) : "memory", "r12", "lr"); return (const char *)__r0; }
+
+static inline void luaL_buffinit(lua_State * __param1, luaL_Buffer * __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "126" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (void)__r0; }
+static inline char * luaL_prepbuffer(luaL_Buffer * __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "127" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (char *)__r0; }
+static inline void luaL_addlstring(luaL_Buffer * __param1, const char * __param2, size_t __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "128" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (void)__r0; }
+static inline void luaL_addstring(luaL_Buffer * __param1, const char * __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "129" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (void)__r0; }
+static inline void luaL_addvalue(luaL_Buffer * __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "130" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (void)__r0; }
+static inline void luaL_pushresult(luaL_Buffer * __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "131" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (void)__r0; }
+
+
+static inline lua_State * lua_newstate(lua_Alloc __param1, void * __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "132" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (lua_State *)__r0; }
+static inline void lua_close(lua_State * __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "133" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (void)__r0; }
+static inline lua_State * lua_newthread(lua_State * __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "134" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (lua_State *)__r0; }
+static inline lua_CFunction lua_atpanic(lua_State * __param1, lua_CFunction __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "135" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (lua_CFunction)__r0; }
+static inline int lua_gettop(lua_State * __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "136" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline void lua_settop(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "137" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (void)__r0; }
+static inline void lua_pushvalue(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "138" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (void)__r0; }
+static inline void lua_remove(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "139" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (void)__r0; }
+static inline void lua_insert(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "140" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (void)__r0; }
+static inline void lua_replace(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "141" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (void)__r0; }
+static inline int lua_checkstack(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "142" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline void lua_xmove(lua_State * __param1, lua_State * __param2, int __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "143" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (void)__r0; }
+static inline int lua_isnumber(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "144" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline int lua_isstring(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "145" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline int lua_iscfunction(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "146" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline int lua_isuserdata(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "147" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline int lua_type(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "148" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline const char * lua_typename(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "149" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (const char *)__r0; }
+static inline int lua_equal(lua_State * __param1, int __param2, int __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "150" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (int)__r0; }
+static inline int lua_rawequal(lua_State * __param1, int __param2, int __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "151" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (int)__r0; }
+static inline int lua_lessthan(lua_State * __param1, int __param2, int __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "152" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (int)__r0; }
+static inline lua_Number lua_tonumber(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "153" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (lua_Number)__r0; }
+static inline lua_Integer lua_tointeger(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "154" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (lua_Integer)__r0; }
+static inline int lua_toboolean(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "155" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline const char * lua_tolstring(lua_State * __param1, int __param2, size_t * __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "156" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (const char *)__r0; }
+static inline size_t lua_objlen(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "157" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (size_t)__r0; }
+static inline lua_CFunction lua_tocfunction(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "158" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (lua_CFunction)__r0; }
+static inline void * lua_touserdata(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "159" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (void *)__r0; }
+static inline lua_State * lua_tothread(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "160" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (lua_State *)__r0; }
+static inline const void * lua_topointer(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "161" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (const void *)__r0; }
+static inline void lua_pushnil(lua_State * __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "162" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (void)__r0; }
+static inline void lua_pushnumber(lua_State * __param1, lua_Number __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "163" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (void)__r0; }
+static inline void lua_pushinteger(lua_State * __param1, lua_Integer __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "164" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (void)__r0; }
+static inline void lua_pushlstring(lua_State * __param1, const char * __param2, size_t __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "165" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (void)__r0; }
+static inline void lua_pushstring(lua_State * __param1, const char * __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "166" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (void)__r0; }
+static inline const char * lua_pushvfstring(lua_State * __param1, const char * __param2, va_list* __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "167" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (const char *)__r0; }
+static __attribute__((unused)) const char * __attribute__((naked)) lua_pushfstring(__attribute__((unused)) lua_State *L, __attribute__((unused)) const char *fmt, ...) { register unsigned __r0 __asm("r0"); __asm volatile( " push {r4, r5} \n" " ldr " "r4" ", 1f \n" " ldr " "r5" ", 1f+4 \n" "0:	\n" " add " "r4" ", pc, " "r4" " \n" " ldr " "r4" ", [" "r4" ", " "r5" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " str lr, [r4] \n" " pop {r4, r5} \n" " swi " "168" "\n" " ldr " "r1" ", 1f \n" " ldr " "r2" ", 1f+4 \n" "0:	\n" " add " "r1" ", pc, " "r1" " \n" " ldr " "r1" ", [" "r1" ", " "r2" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " ldr pc, [r1] \n" : "=r" (__r0):: "memory", "r1", "r2", "r3"); return (const char *)__r0; }
+static inline void lua_pushcclosure(lua_State * __param1, lua_CFunction __param2, int __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "169" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (void)__r0; }
+static inline void lua_pushboolean(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "170" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (void)__r0; }
+static inline void lua_pushlightuserdata(lua_State * __param1, void * __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "e_lua_pushlightuserdata" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (void)__r0; }
+static inline int lua_pushthread(lua_State * __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "e_lua_pushthread" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline void lua_gettable(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "171" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (void)__r0; }
+static inline void lua_getfield(lua_State * __param1, int __param2, const char * __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "172" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (void)__r0; }
+static inline void lua_rawget(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "173" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (void)__r0; }
+static inline void lua_rawgeti(lua_State * __param1, int __param2, int __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "174" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (void)__r0; }
+static inline void lua_createtable(lua_State * __param1, int __param2, int __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "175" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (void)__r0; }
+static inline void * lua_newuserdata(lua_State * __param1, size_t __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "176" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (void *)__r0; }
+static inline int lua_getmetatable(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "177" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline void lua_getfenv(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "178" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (void)__r0; }
+static inline void lua_settable(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "179" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (void)__r0; }
+static inline void lua_setfield(lua_State * __param1, int __param2, const char * __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "180" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (void)__r0; }
+static inline void lua_rawset(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "181" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (void)__r0; }
+static inline void lua_rawseti(lua_State * __param1, int __param2, int __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "182" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (void)__r0; }
+static inline int lua_setmetatable(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "183" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline int lua_setfenv(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "184" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline void lua_call(lua_State * __param1, int __param2, int __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "185" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (void)__r0; }
+static inline int lua_pcall(lua_State * __param1, int __param2, int __param3, int __param4) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; register unsigned __r3 __asm("r3") = (unsigned)__param4; __asm volatile( " swi " "186" : "=r" (__r0), "=r" (__r1), "=r" (__r2), "=r" (__r3) : "r" (__r0), "r" (__r1), "r" (__r2) , "r" (__r3) : "memory", "r12", "lr"); return (int)__r0; }
+static inline int lua_cpcall(lua_State * __param1, lua_CFunction __param2, void * __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "187" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (int)__r0; }
+static inline int lua_load(lua_State * __param1, lua_Reader __param2, void * __param3, const char * __param4) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; register unsigned __r3 __asm("r3") = (unsigned)__param4; __asm volatile( " swi " "188" : "=r" (__r0), "=r" (__r1), "=r" (__r2), "=r" (__r3) : "r" (__r0), "r" (__r1), "r" (__r2) , "r" (__r3) : "memory", "r12", "lr"); return (int)__r0; }
+static inline int lua_dump(lua_State * __param1, lua_Writer __param2, void * __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "189" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (int)__r0; }
+static inline int lua_yield(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "190" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline int lua_resume(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "191" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline int lua_status(lua_State * __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "192" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline int lua_gc(lua_State * __param1, int __param2, int __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "193" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (int)__r0; }
+static inline int lua_error(lua_State * __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "194" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline int lua_next(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "195" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (int)__r0; }
+static inline void lua_concat(lua_State * __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "196" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (void)__r0; }
+static inline int lua_getstack(lua_State * __param1, int __param2, lua_Debug * __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "197" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (int)__r0; }
+static inline int lua_getinfo(lua_State * __param1, const char * __param2, lua_Debug * __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "e_lua_getinfo" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (int)__r0; }
+
+
+# 1 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/bsdcompat.h" 1
+# 603 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/os.h" 2
+
+static __attribute__((unused)) int __attribute__((naked)) usb_register_driver(__attribute__((unused)) int a, __attribute__((unused)) int (*methods[])(device_t), __attribute__((unused)) const char *driver_name, __attribute__((unused)) int b, __attribute__((unused)) unsigned softc_size) { register unsigned __r0 __asm("r0"); __asm volatile( " push {r4, r5} \n" " ldr " "r4" ", 1f \n" " ldr " "r5" ", 1f+4 \n" "0:	\n" " add " "r4" ", pc, " "r4" " \n" " ldr " "r4" ", [" "r4" ", " "r5" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " str lr, [r4] \n" " pop {r4, r5} \n" " swi " "258" "\n" " ldr " "r1" ", 1f \n" " ldr " "r2" ", 1f+4 \n" "0:	\n" " add " "r1" ", pc, " "r1" " \n" " ldr " "r1" ", [" "r1" ", " "r2" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " ldr pc, [r1] \n" : "=r" (__r0):: "memory", "r1", "r2", "r3"); return (int)__r0; }
+
+
+static inline void * device_get_ivars(device_t __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "260" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (void *)__r0; }
+static inline void * device_get_softc(device_t __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "259" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (void *)__r0; }
+
+
+
+
+static inline usbd_status usbd_open_pipe(usbd_interface_handle __param1, u_int8_t __param2, u_int8_t __param3, usbd_pipe_handle * __param4) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; register unsigned __r3 __asm("r3") = (unsigned)__param4; __asm volatile( " swi " "227" : "=r" (__r0), "=r" (__r1), "=r" (__r2), "=r" (__r3) : "r" (__r0), "r" (__r1), "r" (__r2) , "r" (__r3) : "memory", "r12", "lr"); return (usbd_status)__r0; }
+static inline usbd_status usbd_close_pipe(usbd_pipe_handle __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "228" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (usbd_status)__r0; }
+static inline usbd_status usbd_transfer(usbd_xfer_handle __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "229" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (usbd_status)__r0; }
+static inline usbd_xfer_handle usbd_alloc_xfer(usbd_device_handle __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "230" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (usbd_xfer_handle)__r0; }
+static inline usbd_status usbd_free_xfer(usbd_xfer_handle __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "231" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (usbd_status)__r0; }
+static __attribute__((unused)) void __attribute__((naked)) usbd_setup_xfer(__attribute__((unused)) usbd_xfer_handle a, __attribute__((unused)) usbd_pipe_handle b, __attribute__((unused)) usbd_private_handle c, __attribute__((unused)) void *d, __attribute__((unused)) u_int32_t e, __attribute__((unused)) u_int16_t f, __attribute__((unused)) u_int32_t g, __attribute__((unused)) usbd_callback h) { register unsigned __r0 __asm("r0"); __asm volatile( " push {r4, r5} \n" " ldr " "r4" ", 1f \n" " ldr " "r5" ", 1f+4 \n" "0:	\n" " add " "r4" ", pc, " "r4" " \n" " ldr " "r4" ", [" "r4" ", " "r5" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " str lr, [r4] \n" " pop {r4, r5} \n" " swi " "232" "\n" " ldr " "r1" ", 1f \n" " ldr " "r2" ", 1f+4 \n" "0:	\n" " add " "r1" ", pc, " "r1" " \n" " ldr " "r1" ", [" "r1" ", " "r2" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " ldr pc, [r1] \n" : "=r" (__r0):: "memory", "r1", "r2", "r3"); return (void)__r0; }
+
+static __attribute__((unused)) void __attribute__((naked)) usbd_setup_isoc_xfer(__attribute__((unused)) usbd_xfer_handle a, __attribute__((unused)) usbd_pipe_handle b, __attribute__((unused)) usbd_private_handle c, __attribute__((unused)) u_int16_t *d, __attribute__((unused)) u_int32_t e, __attribute__((unused)) u_int16_t f, __attribute__((unused)) usbd_callback g) { register unsigned __r0 __asm("r0"); __asm volatile( " push {r4, r5} \n" " ldr " "r4" ", 1f \n" " ldr " "r5" ", 1f+4 \n" "0:	\n" " add " "r4" ", pc, " "r4" " \n" " ldr " "r4" ", [" "r4" ", " "r5" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " str lr, [r4] \n" " pop {r4, r5} \n" " swi " "233" "\n" " ldr " "r1" ", 1f \n" " ldr " "r2" ", 1f+4 \n" "0:	\n" " add " "r1" ", pc, " "r1" " \n" " ldr " "r1" ", [" "r1" ", " "r2" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " ldr pc, [r1] \n" : "=r" (__r0):: "memory", "r1", "r2", "r3"); return (void)__r0; }
+static __attribute__((unused)) void __attribute__((naked)) usbd_get_xfer_status(__attribute__((unused)) usbd_xfer_handle a, __attribute__((unused)) usbd_private_handle *b, __attribute__((unused)) void **c, __attribute__((unused)) u_int32_t *d, __attribute__((unused)) usbd_status *e) { register unsigned __r0 __asm("r0"); __asm volatile( " push {r4, r5} \n" " ldr " "r4" ", 1f \n" " ldr " "r5" ", 1f+4 \n" "0:	\n" " add " "r4" ", pc, " "r4" " \n" " ldr " "r4" ", [" "r4" ", " "r5" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " str lr, [r4] \n" " pop {r4, r5} \n" " swi " "234" "\n" " ldr " "r1" ", 1f \n" " ldr " "r2" ", 1f+4 \n" "0:	\n" " add " "r1" ", pc, " "r1" " \n" " ldr " "r1" ", [" "r1" ", " "r2" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " ldr pc, [r1] \n" : "=r" (__r0):: "memory", "r1", "r2", "r3"); return (void)__r0; }
+static inline usb_endpoint_descriptor_t * usbd_interface2endpoint_descriptor(usbd_interface_handle __param1, u_int8_t __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "235" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (usb_endpoint_descriptor_t *)__r0; }
+static inline usbd_status usbd_abort_pipe(usbd_pipe_handle __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "236" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (usbd_status)__r0; }
+static inline usbd_status usbd_clear_endpoint_stall(usbd_pipe_handle __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "237" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (usbd_status)__r0; }
+
+
+static inline usbd_status usbd_endpoint_count(usbd_interface_handle __param1, u_int8_t * __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "238" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (usbd_status)__r0; }
+static inline usbd_status usbd_interface_count(usbd_device_handle __param1, u_int8_t * __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "239" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (usbd_status)__r0; }
+static inline usbd_status usbd_interface2device_handle(usbd_interface_handle __param1, usbd_device_handle * __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "240" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (usbd_status)__r0; }
+static inline usbd_status usbd_device2interface_handle(usbd_device_handle __param1, u_int8_t __param2, usbd_interface_handle * __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "241" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (usbd_status)__r0; }
+static inline usbd_device_handle usbd_pipe2device_handle(usbd_pipe_handle __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "242" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (usbd_device_handle)__r0; }
+
+
+
+static inline usbd_status usbd_sync_transfer(usbd_xfer_handle __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "243" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (usbd_status)__r0; }
+struct s_usb_pipe_buf {
+  u_char *buf;
+  int dummy1;
+  int dummy2;
+ };
+static __attribute__((unused)) usbd_status __attribute__((naked)) usbd_open_pipe_intr(__attribute__((unused)) usbd_interface_handle b, __attribute__((unused)) u_int8_t c, __attribute__((unused)) u_int8_t d, __attribute__((unused)) usbd_pipe_handle * e, __attribute__((unused)) usbd_private_handle f, __attribute__((unused)) void *g, __attribute__((unused)) u_int32_t h, __attribute__((unused)) usbd_callback i, __attribute__((unused)) int j) { register unsigned __r0 __asm("r0"); __asm volatile( " push {r4, r5} \n" " ldr " "r4" ", 1f \n" " ldr " "r5" ", 1f+4 \n" "0:	\n" " add " "r4" ", pc, " "r4" " \n" " ldr " "r4" ", [" "r4" ", " "r5" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " str lr, [r4] \n" " pop {r4, r5} \n" " swi " "244" "\n" " ldr " "r1" ", 1f \n" " ldr " "r2" ", 1f+4 \n" "0:	\n" " add " "r1" ", pc, " "r1" " \n" " ldr " "r1" ", [" "r1" ", " "r2" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " ldr pc, [r1] \n" : "=r" (__r0):: "memory", "r1", "r2", "r3"); return (usbd_status)__r0; }
+static inline usbd_status usbd_do_request(usbd_device_handle __param1, usb_device_request_t * __param2, void * __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "245" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (usbd_status)__r0; }
+
+static __attribute__((unused)) usbd_status __attribute__((naked)) usbd_do_request_flags(__attribute__((unused)) usbd_device_handle a, __attribute__((unused)) usb_device_request_t *b, __attribute__((unused)) void *c, __attribute__((unused)) u_int16_t d, __attribute__((unused)) int *e) { register unsigned __r0 __asm("r0"); __asm volatile( " push {r4, r5} \n" " ldr " "r4" ", 1f \n" " ldr " "r5" ", 1f+4 \n" "0:	\n" " add " "r4" ", pc, " "r4" " \n" " ldr " "r4" ", [" "r4" ", " "r5" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " str lr, [r4] \n" " pop {r4, r5} \n" " swi " "246" "\n" " ldr " "r1" ", 1f \n" " ldr " "r2" ", 1f+4 \n" "0:	\n" " add " "r1" ", pc, " "r1" " \n" " ldr " "r1" ", [" "r1" ", " "r2" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " ldr pc, [r1] \n" : "=r" (__r0):: "memory", "r1", "r2", "r3"); return (usbd_status)__r0; }
+static __attribute__((unused)) usbd_status __attribute__((naked)) usbd_do_request_flags_pipe(__attribute__((unused)) usbd_device_handle a, __attribute__((unused)) usbd_pipe_handle b, __attribute__((unused)) usb_device_request_t *c, __attribute__((unused)) void *d, __attribute__((unused)) u_int16_t e, __attribute__((unused)) int *f) { register unsigned __r0 __asm("r0"); __asm volatile( " push {r4, r5} \n" " ldr " "r4" ", 1f \n" " ldr " "r5" ", 1f+4 \n" "0:	\n" " add " "r4" ", pc, " "r4" " \n" " ldr " "r4" ", [" "r4" ", " "r5" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " str lr, [r4] \n" " pop {r4, r5} \n" " swi " "247" "\n" " ldr " "r1" ", 1f \n" " ldr " "r2" ", 1f+4 \n" "0:	\n" " add " "r1" ", pc, " "r1" " \n" " ldr " "r1" ", [" "r1" ", " "r2" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " ldr pc, [r1] \n" : "=r" (__r0):: "memory", "r1", "r2", "r3"); return (usbd_status)__r0; }
+static inline usb_interface_descriptor_t * usbd_get_interface_descriptor(usbd_interface_handle __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "248" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (usb_interface_descriptor_t *)__r0; }
+static inline usb_config_descriptor_t * usbd_get_config_descriptor(usbd_device_handle __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "249" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (usb_config_descriptor_t *)__r0; }
+static inline usb_device_descriptor_t * usbd_get_device_descriptor(usbd_device_handle __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "250" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (usb_device_descriptor_t *)__r0; }
+static inline usbd_status usbd_set_interface(usbd_interface_handle __param1, int __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "251" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (usbd_status)__r0; }
+
+static inline usbd_status usbd_get_interface(usbd_interface_handle __param1, u_int8_t * __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "252" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (usbd_status)__r0; }
+
+
+static inline usb_interface_descriptor_t * usbd_find_idesc(usb_config_descriptor_t * __param1, int __param2, int __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "253" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (usb_interface_descriptor_t *)__r0; }
+
+
+
+static inline const char * usbd_errstr(usbd_status __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "254" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (const char *)__r0; }
+
+
+static inline void usbd_devinfo(usbd_device_handle __param1, int __param2, char * __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "255" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (void)__r0; }
+static inline const struct usbd_quirks * usbd_get_quirks(usbd_device_handle __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "256" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (const struct usbd_quirks *)__r0; }
+static inline usb_endpoint_descriptor_t * usbd_get_endpoint_descriptor(usbd_interface_handle __param1, u_int8_t __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "257" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (usb_endpoint_descriptor_t *)__r0; }
+
+
+
+
+
+typedef void *nn_ch_t;
+typedef void *nn_nh_t;
+typedef void *nn_oh_t;
+
+static inline uint32_t TI_NN_GetConnMaxPktSize(nn_ch_t __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "271" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (uint32_t)__r0; }
+
+static __attribute__((unused)) int16_t __attribute__((naked)) TI_NN_Read(__attribute__((unused)) nn_ch_t ch, __attribute__((unused)) uint32_t timeout, __attribute__((unused)) void *buf, __attribute__((unused)) uint32_t buf_size, __attribute__((unused)) uint32_t *data_size) { register unsigned __r0 __asm("r0"); __asm volatile( " push {r4, r5} \n" " ldr " "r4" ", 1f \n" " ldr " "r5" ", 1f+4 \n" "0:	\n" " add " "r4" ", pc, " "r4" " \n" " ldr " "r4" ", [" "r4" ", " "r5" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " str lr, [r4] \n" " pop {r4, r5} \n" " swi " "272" "\n" " ldr " "r1" ", 1f \n" " ldr " "r2" ", 1f+4 \n" "0:	\n" " add " "r1" ", pc, " "r1" " \n" " ldr " "r1" ", [" "r1" ", " "r2" "] \n" " b 2f \n" " .align 2 \n" "1: \n" " .long _GLOBAL_OFFSET_TABLE_ - (0b+8) \n" " .long _syscallvar_savedlr(GOT) \n" "2: \n" " ldr pc, [r1] \n" : "=r" (__r0):: "memory", "r1", "r2", "r3"); return (int16_t)__r0; }
+static inline int16_t TI_NN_Write(nn_ch_t __param1, void * __param2, uint32_t __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "273" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (int16_t)__r0; }
+
+typedef void (*__TI_NN_StartService_cb_t)(nn_ch_t, void*);
+static inline int16_t TI_NN_StartService(uint32_t __param1, void * __param2, __TI_NN_StartService_cb_t __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "274" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (int16_t)__r0; }
+static inline int16_t TI_NN_StopService(uint32_t __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "275" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int16_t)__r0; }
+typedef void (*__TI_NN_RegisterNotifyCallback_cb_t)(void);
+
+static inline int16_t TI_NN_RegisterNotifyCallback(uint32_t __param1, __TI_NN_RegisterNotifyCallback_cb_t __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "280" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (int16_t)__r0; };
+static inline nn_oh_t TI_NN_CreateOperationHandle(void) { register unsigned __r0 __asm("r0"); __asm volatile( " swi " "284" :"=r" (__r0) :: "memory", "r1", "r2", "r3", "r12", "lr"); return (nn_oh_t)__r0; }
+static inline int16_t TI_NN_NodeEnumInit(nn_ch_t __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "278" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int16_t)__r0; }
+static inline int16_t TI_NN_DestroyOperationHandle(nn_oh_t __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "283" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int16_t)__r0; }
+static inline int16_t TI_NN_NodeEnumNext(nn_oh_t __param1, nn_nh_t * __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "270" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (int16_t)__r0; }
+static inline int16_t TI_NN_NodeEnumDone(nn_oh_t __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "269" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int16_t)__r0; }
+static inline int16_t TI_NN_Connect(nn_nh_t __param1, uint32_t __param2, nn_ch_t * __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "276" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (int16_t)__r0; }
+static inline int16_t TI_NN_Disconnect(nn_ch_t __param1) { register unsigned __r0 __asm("r0") = (unsigned)__param1; __asm volatile( " swi " "277" : "=r" (__r0) : "r" (__r0) : "memory", "r1", "r2", "r3", "r12", "lr"); return (int16_t)__r0; }
+
+
+
+
+
+
+static inline int nl_osvalue(const int * __param1, unsigned __param2) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; __asm volatile( " swi " "(0x200000 | 0)" : "=r" (__r0), "=r" (__r1) : "r" (__r0), "r" (__r1) : "memory", "r2", "r3", "r12", "lr"); return (int)__r0; }
+
+
+static inline void nl_relocdatab(unsigned * __param1, unsigned __param2, void * __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "(0x200000 | 1)" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (void)__r0; }
+
+static inline unsigned nl_hwtype(void) { register unsigned __r0 __asm("r0"); __asm volatile( " swi " "(0x200000 | 2)" :"=r" (__r0) :: "memory", "r1", "r2", "r3", "r12", "lr"); return (unsigned)__r0; }
+static inline BOOL nl_isstartup(void) { register unsigned __r0 __asm("r0"); __asm volatile( " swi " "(0x200000 | 3)" :"=r" (__r0) :: "memory", "r1", "r2", "r3", "r12", "lr"); return (BOOL)__r0; }
+static inline lua_State * nl_lua_getstate(void) { register unsigned __r0 __asm("r0"); __asm volatile( " swi " "(0x200000 | 4)" :"=r" (__r0) :: "memory", "r1", "r2", "r3", "r12", "lr"); return (lua_State *)__r0; }
+static inline void nl_set_resident(void) { register unsigned __r0 __asm("r0"); __asm volatile( " swi " "(0x200000 | 5)" :"=r" (__r0) :: "memory", "r1", "r2", "r3", "r12", "lr"); return (void)__r0; }
+static inline unsigned nl_ndless_rev(void) { register unsigned __r0 __asm("r0"); __asm volatile( " swi " "(0x200000 | 6)" :"=r" (__r0) :: "memory", "r1", "r2", "r3", "r12", "lr"); return (unsigned)__r0; }
+static inline void nl_no_scr_redraw(void) { register unsigned __r0 __asm("r0"); __asm volatile( " swi " "(0x200000 | 7)" :"=r" (__r0) :: "memory", "r1", "r2", "r3", "r12", "lr"); return (void)__r0; }
+static inline BOOL nl_loaded_by_3rd_party_loader(void) { register unsigned __r0 __asm("r0"); __asm volatile( " swi " "(0x200000 | 8)" :"=r" (__r0) :: "memory", "r1", "r2", "r3", "r12", "lr"); return (BOOL)__r0; }
+static inline unsigned nl_hwsubtype(void) { register unsigned __r0 __asm("r0"); __asm volatile( " swi " "(0x200000 | 9)" :"=r" (__r0) :: "memory", "r1", "r2", "r3", "r12", "lr"); return (unsigned)__r0; }
+static inline int nl_exec(const char * __param1, int __param2, char ** __param3) { register unsigned __r0 __asm("r0") = (unsigned)__param1; register unsigned __r1 __asm("r1") = (unsigned)__param2; register unsigned __r2 __asm("r2") = (unsigned)__param3; __asm volatile( " swi " "(0x200000 | 10)" : "=r" (__r0), "=r" (__r1), "=r" (__r2) : "r" (__r0), "r" (__r1), "r" (__r2) : "memory", "r3", "r12", "lr"); return (int)__r0; }
+
+
+extern unsigned __crt0exit;
+extern unsigned __crt0_savedsp;
+static void __attribute__((noreturn, naked)) exit(int __attribute__((unused)) status) {
+ __asm volatile(
+  " mov sp, %0 \n"
+  " mov pc, %1"
+  :: "r" (__crt0_savedsp), "r" (&__crt0exit));
+ __builtin_unreachable();
+}
+
+static void __attribute__((noreturn)) abort(void) {
+ exit(-1);
+}
+# 12 "nvid.c" 2
+
+# 1 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/nspireio2.h" 1
+# 30 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/nspireio2.h"
+# 1 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/nspireio.h" 1
+# 34 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/nspireio.h"
+# 1 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/platform.h" 1
+# 45 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/platform.h"
+# 1 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/nspire.h" 1
+# 46 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/platform.h" 2
+# 54 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/platform.h"
+void nio_pixel_set(const int x, const int y, const unsigned int color);
+void nio_vram_pixel_set(const int x, const int y, const unsigned int color);
+void nio_vram_draw(void);
+unsigned int nio_cursor_clock(void);
+char nio_ascii_get(int* adaptive_cursor_state);
+
+
+
+
+BOOL uart_ready(void);
+
+
+
+
+char uart_getchar(void);
+
+
+
+
+char* uart_gets(char* str);
+
+
+
+char uart_putchar(char character);
+
+
+
+
+int uart_puts(const char *str);
+
+
+
+void uart_printf(char *format, ...);
+# 35 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/nspireio.h" 2
+
+
+
+enum
+{
+ NIO_COLOR_BLACK = 0,
+ NIO_COLOR_RED,
+ NIO_COLOR_GREEN,
+ NIO_COLOR_YELLOW,
+ NIO_COLOR_BLUE,
+ NIO_COLOR_MAGENTA,
+ NIO_COLOR_CYAN,
+ NIO_COLOR_GRAY,
+ NIO_COLOR_LIGHTBLACK,
+ NIO_COLOR_LIGHTRED,
+ NIO_COLOR_LIGHTGREEN,
+ NIO_COLOR_LIGHTYELLOW,
+ NIO_COLOR_LIGHTBLUE,
+ NIO_COLOR_LIGHTMAGENTA,
+ NIO_COLOR_LIGHTCYAN,
+ NIO_COLOR_WHITE
+};
+
+
+typedef struct
+{
+ char* data;
+ unsigned short* color;
+ int cursor_x;
+ int cursor_y;
+ int max_x;
+ int max_y;
+ int offset_x;
+ int offset_y;
+ unsigned char default_background_color;
+ unsigned char default_foreground_color;
+ BOOL drawing_enabled;
+ BOOL cursor_enabled;
+ int cursor_type;
+ int cursor_line_width;
+ unsigned char cursor_custom_data[6];
+ BOOL cursor_blink_enabled;
+ BOOL cursor_blink_status;
+ unsigned cursor_blink_timestamp;
+ unsigned cursor_blink_duration;
+} nio_console;
+# 97 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/nspireio.h"
+void nio_pixel_putc(const int x, const int y, const char ch, const int bgColor, const int textColor);
+# 108 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/nspireio.h"
+void nio_pixel_puts(const int x, const int y, const char* str, const int bgColor, const int textColor);
+# 119 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/nspireio.h"
+void nio_grid_puts(const int offset_x, const int offset_y, const int x, const int y, const char *str, const unsigned char bgColor, const unsigned char textColor);
+# 130 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/nspireio.h"
+void nio_grid_putc(const int offset_x, const int offset_y, const int x, const int y, const char ch, const unsigned char bgColor, const unsigned char textColor);
+# 141 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/nspireio.h"
+void nio_vram_pixel_putc(const int x, const int y, const char ch, const int bgColor, const int textColor);
+# 152 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/nspireio.h"
+void nio_vram_pixel_puts(const int x, const int y, const char* str, const int bgColor, const int textColor);
+# 163 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/nspireio.h"
+void nio_vram_grid_puts(const int offset_x, const int offset_y, const int x, const int y, const char *str, const unsigned char bgColor, const unsigned char textColor);
+# 174 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/nspireio.h"
+void nio_vram_grid_putc(const int offset_x, const int offset_y, const int x, const int y, const char ch, const unsigned char bgColor, const unsigned char textColor);
+
+
+
+
+
+void nio_load(const char* path, nio_console* c);
+
+
+
+
+
+void nio_save(const char* path, const nio_console* c);
+
+
+
+
+void nio_set_default(nio_console* c);
+
+
+
+
+nio_console* nio_get_default(void);
+
+
+
+
+void nio_clear(nio_console* c);
+
+
+
+
+void nio_scroll(nio_console* c);
+
+
+
+
+
+
+void nio_csl_drawchar(nio_console* c, const int pos_x, const int pos_y);
+
+
+
+
+
+
+void nio_vram_csl_drawchar(nio_console* c, const int pos_x, const int pos_y);
+
+
+
+
+
+
+
+void nio_csl_savechar(nio_console* c, const char ch, const int pos_x, const int pos_y);
+
+
+
+
+
+
+void nio_color(nio_console* c, const unsigned char background_color, const unsigned char foreground_color);
+
+
+
+
+
+void nio_drawing_enabled(nio_console* c, const BOOL enable_drawing);
+# 253 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/nspireio.h"
+void nio_init(nio_console* c, const int size_x, const int size_y, const int offset_x, const int offset_y, const unsigned char background_color, const unsigned char foreground_color, const BOOL drawing_enabled);
+
+
+
+
+void nio_free(nio_console* c);
+
+
+
+void nio_use_stdio(void);
+
+
+
+void nio_free_stdio(void);
+
+
+
+
+int nio_fflush(nio_console* c);
+
+
+
+int nio_fputc(int character, nio_console* c);
+
+
+
+int nio_putchar(int character);
+
+
+
+int nio_fputs(const char* str, nio_console* c);
+
+
+
+int nio_puts(const char* str);
+
+
+
+int nio_fgetc(nio_console* c);
+
+
+
+int nio_getchar(void);
+
+
+
+
+char* nio_fgets(char* str, int num, nio_console* c);
+
+
+
+char* nio_gets(char* str);
+
+
+
+
+
+int nio_fprintf(nio_console* c, const char* format, ...);
+
+
+
+int nio_printf(const char* format, ...);
+
+
+
+void nio_perror(const char* str);
+# 329 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/nspireio.h"
+int nio_getch(nio_console* c);
+
+
+
+int nio__getch(void);
+
+
+
+
+int nio_getche(nio_console* c);
+
+
+
+int nio__getche(void);
+
+
+
+
+
+
+
+int reg_store(void* dataptr, size_t size, char* regpath);
+
+
+
+
+
+void* reg_get(char* regpath);
+
+
+
+
+BOOL uart_ready(void);
+
+
+
+
+char uart_getchar(void);
+
+
+
+
+char* uart_gets(char* str);
+
+
+
+char uart_putchar(char character);
+
+
+
+
+int uart_puts(const char *str);
+
+
+
+void uart_printf(char *format, ...);
+
+
+
+
+inline unsigned nio_time_get();
+
+
+
+
+void nio_cursor_draw(nio_console* c);
+
+
+
+
+void nio_cursor_erase(nio_console* c);
+
+
+
+
+void nio_cursor_blinking_draw(nio_console* c);
+
+
+
+
+void nio_cursor_blinking_reset(nio_console* c);
+
+
+
+
+
+void nio_cursor_enable(nio_console* c, BOOL enable_cursor);
+
+
+
+
+
+void nio_cursor_blinking_enable(nio_console* c, BOOL enable_cursor_blink);
+
+
+
+
+
+void nio_cursor_blinking_duration(nio_console* c, int duration);
+# 442 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/nspireio.h"
+void nio_cursor_type(nio_console* c, int cursor_type);
+# 465 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/nspireio.h"
+void nio_cursor_width(nio_console* c, int cursor_width);
+# 478 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/nspireio.h"
+void nio_cursor_custom(nio_console* c, unsigned char cursor_data[6]);
+# 31 "c:/Users/Paul/ndless-sdk/ndless/bin/../include/nspireio2.h" 2
+# 14 "nvid.c" 2
+
+FILE *infile;
+nio_console csl;
+
+
+
+# 1 "vpx/vpx_decoder.h" 1
+# 32 "vpx/vpx_decoder.h"
+# 1 "vpx/./vpx_codec.h" 1
+# 46 "vpx/./vpx_codec.h"
+# 1 "vpx/././vpx_integer.h" 1
+# 16 "vpx/././vpx_integer.h"
+# 1 "c:\\programs86\\yagarto-20121222\\bin\\../lib/gcc/arm-none-eabi/4.7.2/include/stddef.h" 1 3 4
+# 17 "vpx/././vpx_integer.h" 2
+# 54 "vpx/././vpx_integer.h"
+# 1 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/inttypes.h" 1 3 4
+# 18 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/inttypes.h" 3 4
+# 1 "c:\\programs86\\yagarto-20121222\\bin\\../lib/gcc/arm-none-eabi/4.7.2/include/stddef.h" 1 3 4
+# 19 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/inttypes.h" 2 3 4
+# 270 "c:/programs86/yagarto-20121222/lib/gcc/../../arm-none-eabi/sys-include/inttypes.h" 3 4
+typedef struct {
+  intmax_t quot;
+  intmax_t rem;
+} imaxdiv_t;
+
+
+
+
+
+extern intmax_t imaxabs(intmax_t j);
+extern imaxdiv_t imaxdiv(intmax_t numer, intmax_t denomer);
+extern intmax_t strtoimax(const char *__restrict, char **__restrict, int);
+extern uintmax_t strtoumax(const char *__restrict, char **__restrict, int);
+extern intmax_t wcstoimax(const wchar_t *__restrict, wchar_t **__restrict, int);
+extern uintmax_t wcstoumax(const wchar_t *__restrict, wchar_t **__restrict, int);
+# 55 "vpx/././vpx_integer.h" 2
+# 47 "vpx/./vpx_codec.h" 2
+# 1 "vpx/././vpx_image.h" 1
+# 40 "vpx/././vpx_image.h"
+  typedef enum vpx_img_fmt {
+    VPX_IMG_FMT_NONE,
+    VPX_IMG_FMT_RGB24,
+    VPX_IMG_FMT_RGB32,
+    VPX_IMG_FMT_RGB565,
+    VPX_IMG_FMT_RGB555,
+    VPX_IMG_FMT_UYVY,
+    VPX_IMG_FMT_YUY2,
+    VPX_IMG_FMT_YVYU,
+    VPX_IMG_FMT_BGR24,
+    VPX_IMG_FMT_RGB32_LE,
+    VPX_IMG_FMT_ARGB,
+    VPX_IMG_FMT_ARGB_LE,
+    VPX_IMG_FMT_RGB565_LE,
+    VPX_IMG_FMT_RGB555_LE,
+    VPX_IMG_FMT_YV12 = 0x100 | 0x200 | 1,
+    VPX_IMG_FMT_I420 = 0x100 | 2,
+    VPX_IMG_FMT_VPXYV12 = 0x100 | 0x200 | 3,
+    VPX_IMG_FMT_VPXI420 = 0x100 | 4,
+    VPX_IMG_FMT_I422 = 0x100 | 5,
+    VPX_IMG_FMT_I444 = 0x100 | 6,
+    VPX_IMG_FMT_444A = 0x100 | 0x400 | 7
+  } vpx_img_fmt_t;
+# 99 "vpx/././vpx_image.h"
+  typedef struct vpx_image {
+    vpx_img_fmt_t fmt;
+
+
+    unsigned int w;
+    unsigned int h;
+
+
+    unsigned int d_w;
+    unsigned int d_h;
+
+
+    unsigned int x_chroma_shift;
+    unsigned int y_chroma_shift;
+# 127 "vpx/././vpx_image.h"
+    unsigned char *planes[4];
+    int stride[4];
+
+    int bps;
+
+
+
+
+    void *user_priv;
+
+
+
+    unsigned char *img_data;
+    int img_data_owner;
+    int self_allocd;
+
+    void *fb_priv;
+  } vpx_image_t;
+
+
+  typedef struct vpx_image_rect {
+    unsigned int x;
+    unsigned int y;
+    unsigned int w;
+    unsigned int h;
+  } vpx_image_rect_t;
+# 172 "vpx/././vpx_image.h"
+  vpx_image_t *vpx_img_alloc(vpx_image_t *img,
+                             vpx_img_fmt_t fmt,
+                             unsigned int d_w,
+                             unsigned int d_h,
+                             unsigned int align);
+# 197 "vpx/././vpx_image.h"
+  vpx_image_t *vpx_img_wrap(vpx_image_t *img,
+                            vpx_img_fmt_t fmt,
+                            unsigned int d_w,
+                            unsigned int d_h,
+                            unsigned int align,
+                            unsigned char *img_data);
+# 218 "vpx/././vpx_image.h"
+  int vpx_img_set_rect(vpx_image_t *img,
+                       unsigned int x,
+                       unsigned int y,
+                       unsigned int w,
+                       unsigned int h);
+# 232 "vpx/././vpx_image.h"
+  void vpx_img_flip(vpx_image_t *img);
+
+
+
+
+
+
+
+  void vpx_img_free(vpx_image_t *img);
+# 48 "vpx/./vpx_codec.h" 2
+# 89 "vpx/./vpx_codec.h"
+  typedef enum {
+
+    VPX_CODEC_OK,
+
+
+    VPX_CODEC_ERROR,
+
+
+    VPX_CODEC_MEM_ERROR,
+
+
+    VPX_CODEC_ABI_MISMATCH,
+
+
+    VPX_CODEC_INCAPABLE,
+
+
+
+
+
+
+    VPX_CODEC_UNSUP_BITSTREAM,
+# 119 "vpx/./vpx_codec.h"
+    VPX_CODEC_UNSUP_FEATURE,
+# 129 "vpx/./vpx_codec.h"
+    VPX_CODEC_CORRUPT_FRAME,
+
+
+
+
+    VPX_CODEC_INVALID_PARAM,
+
+
+
+
+    VPX_CODEC_LIST_END
+
+  }
+  vpx_codec_err_t;
+# 153 "vpx/./vpx_codec.h"
+  typedef long vpx_codec_caps_t;
+# 166 "vpx/./vpx_codec.h"
+  typedef long vpx_codec_flags_t;
+# 175 "vpx/./vpx_codec.h"
+  typedef const struct vpx_codec_iface vpx_codec_iface_t;
+
+
+
+
+
+
+
+  typedef struct vpx_codec_priv vpx_codec_priv_t;
+
+
+
+
+
+
+  typedef const void *vpx_codec_iter_t;
+# 201 "vpx/./vpx_codec.h"
+  typedef struct vpx_codec_ctx {
+    const char *name;
+    vpx_codec_iface_t *iface;
+    vpx_codec_err_t err;
+    const char *err_detail;
+    vpx_codec_flags_t init_flags;
+    union {
+      struct vpx_codec_dec_cfg *dec;
+      struct vpx_codec_enc_cfg *enc;
+      void *raw;
+    } config;
+    vpx_codec_priv_t *priv;
+  } vpx_codec_ctx_t;
+# 233 "vpx/./vpx_codec.h"
+  int vpx_codec_version(void);
+# 255 "vpx/./vpx_codec.h"
+  const char *vpx_codec_version_str(void);
+# 264 "vpx/./vpx_codec.h"
+  const char *vpx_codec_version_extra_str(void);
+# 273 "vpx/./vpx_codec.h"
+  const char *vpx_codec_build_config(void);
+# 283 "vpx/./vpx_codec.h"
+  const char *vpx_codec_iface_name(vpx_codec_iface_t *iface);
+# 296 "vpx/./vpx_codec.h"
+  const char *vpx_codec_err_to_string(vpx_codec_err_t err);
+# 309 "vpx/./vpx_codec.h"
+  const char *vpx_codec_error(vpx_codec_ctx_t *ctx);
+# 322 "vpx/./vpx_codec.h"
+  const char *vpx_codec_error_detail(vpx_codec_ctx_t *ctx);
+# 342 "vpx/./vpx_codec.h"
+  vpx_codec_err_t vpx_codec_destroy(vpx_codec_ctx_t *ctx);
+# 352 "vpx/./vpx_codec.h"
+  vpx_codec_caps_t vpx_codec_get_caps(vpx_codec_iface_t *iface);
+# 379 "vpx/./vpx_codec.h"
+  vpx_codec_err_t vpx_codec_control_(vpx_codec_ctx_t *ctx,
+                                     int ctrl_id,
+                                     ...);
+# 482 "vpx/./vpx_codec.h"
+  typedef struct vpx_codec_mmap {
+
+
+
+    unsigned int id;
+    unsigned long sz;
+    unsigned int align;
+    unsigned int flags;
+
+
+
+
+
+    void *base;
+    void (*dtor)(struct vpx_codec_mmap *map);
+    void *priv;
+  } vpx_codec_mmap_t;
+# 522 "vpx/./vpx_codec.h"
+  vpx_codec_err_t vpx_codec_get_mem_map(vpx_codec_ctx_t *ctx,
+                                        vpx_codec_mmap_t *mmap,
+                                        vpx_codec_iter_t *iter);
+# 548 "vpx/./vpx_codec.h"
+  vpx_codec_err_t vpx_codec_set_mem_map(vpx_codec_ctx_t *ctx,
+                                         vpx_codec_mmap_t *mmaps,
+                                         unsigned int num_maps);
+# 33 "vpx/vpx_decoder.h" 2
+# 1 "vpx/./vpx_frame_buffer.h" 1
+# 36 "vpx/./vpx_frame_buffer.h"
+typedef struct vpx_codec_frame_buffer {
+  uint8_t *data;
+  size_t size;
+  void *priv;
+} vpx_codec_frame_buffer_t;
+# 60 "vpx/./vpx_frame_buffer.h"
+typedef int (*vpx_get_frame_buffer_cb_fn_t)(
+    void *priv, size_t min_size, vpx_codec_frame_buffer_t *fb);
+# 73 "vpx/./vpx_frame_buffer.h"
+typedef int (*vpx_release_frame_buffer_cb_fn_t)(
+    void *priv, vpx_codec_frame_buffer_t *fb);
+# 34 "vpx/vpx_decoder.h" 2
+# 88 "vpx/vpx_decoder.h"
+  typedef struct vpx_codec_stream_info {
+    unsigned int sz;
+    unsigned int w;
+    unsigned int h;
+    unsigned int is_kf;
+  } vpx_codec_stream_info_t;
+# 107 "vpx/vpx_decoder.h"
+  typedef struct vpx_codec_dec_cfg {
+    unsigned int threads;
+    unsigned int w;
+    unsigned int h;
+  } vpx_codec_dec_cfg_t;
+# 140 "vpx/vpx_decoder.h"
+  vpx_codec_err_t vpx_codec_dec_init_ver(vpx_codec_ctx_t *ctx,
+                                         vpx_codec_iface_t *iface,
+                                         vpx_codec_dec_cfg_t *cfg,
+                                         vpx_codec_flags_t flags,
+                                         int ver);
+# 171 "vpx/vpx_decoder.h"
+  vpx_codec_err_t vpx_codec_peek_stream_info(vpx_codec_iface_t *iface,
+                                             const uint8_t *data,
+                                             unsigned int data_sz,
+                                             vpx_codec_stream_info_t *si);
+# 190 "vpx/vpx_decoder.h"
+  vpx_codec_err_t vpx_codec_get_stream_info(vpx_codec_ctx_t *ctx,
+                                            vpx_codec_stream_info_t *si);
+# 224 "vpx/vpx_decoder.h"
+  vpx_codec_err_t vpx_codec_decode(vpx_codec_ctx_t *ctx,
+                                   const uint8_t *data,
+                                   unsigned int data_sz,
+                                   void *user_priv,
+                                   long deadline);
+# 246 "vpx/vpx_decoder.h"
+  vpx_image_t *vpx_codec_get_frame(vpx_codec_ctx_t *ctx,
+                                   vpx_codec_iter_t *iter);
+# 264 "vpx/vpx_decoder.h"
+  typedef void (*vpx_codec_put_frame_cb_fn_t)(void *user_priv,
+                                              const vpx_image_t *img);
+# 283 "vpx/vpx_decoder.h"
+  vpx_codec_err_t vpx_codec_register_put_frame_cb(vpx_codec_ctx_t *ctx,
+                                                  vpx_codec_put_frame_cb_fn_t cb,
+                                                  void *user_priv);
+# 304 "vpx/vpx_decoder.h"
+  typedef void (*vpx_codec_put_slice_cb_fn_t)(void *user_priv,
+                                              const vpx_image_t *img,
+                                              const vpx_image_rect_t *valid,
+                                              const vpx_image_rect_t *update);
+# 325 "vpx/vpx_decoder.h"
+  vpx_codec_err_t vpx_codec_register_put_slice_cb(vpx_codec_ctx_t *ctx,
+                                                  vpx_codec_put_slice_cb_fn_t cb,
+                                                  void *user_priv);
+# 370 "vpx/vpx_decoder.h"
+  vpx_codec_err_t vpx_codec_set_frame_buffer_functions(
+      vpx_codec_ctx_t *ctx,
+      vpx_get_frame_buffer_cb_fn_t cb_get,
+      vpx_release_frame_buffer_cb_fn_t cb_release, void *cb_priv);
+# 21 "nvid.c" 2
+# 1 "vpx/vp8dx.h" 1
+# 29 "vpx/vp8dx.h"
+# 1 "vpx/./vp8.h" 1
+# 33 "vpx/./vp8.h"
+# 1 "vpx/././vpx_codec.h" 1
+# 34 "vpx/./vp8.h" 2
+# 44 "vpx/./vp8.h"
+enum vp8_com_control_id {
+  VP8_SET_REFERENCE = 1,
+  VP8_COPY_REFERENCE = 2,
+  VP8_SET_POSTPROC = 3,
+  VP8_SET_DBG_COLOR_REF_FRAME = 4,
+  VP8_SET_DBG_COLOR_MB_MODES = 5,
+  VP8_SET_DBG_COLOR_B_MODES = 6,
+  VP8_SET_DBG_DISPLAY_MV = 7,
+
+
+
+
+
+  VP9_GET_REFERENCE = 128,
+  VP8_COMMON_CTRL_ID_MAX,
+  VP8_DECODER_CTRL_ID_START = 256
+};
+
+
+
+
+
+enum vp8_postproc_level {
+  VP8_NOFILTERING = 0,
+  VP8_DEBLOCK = 1 << 0,
+  VP8_DEMACROBLOCK = 1 << 1,
+  VP8_ADDNOISE = 1 << 2,
+  VP8_DEBUG_TXT_FRAME_INFO = 1 << 3,
+  VP8_DEBUG_TXT_MBLK_MODES = 1 << 4,
+  VP8_DEBUG_TXT_DC_DIFF = 1 << 5,
+  VP8_DEBUG_TXT_RATE_INFO = 1 << 6,
+  VP8_MFQE = 1 << 10
+};
+# 85 "vpx/./vp8.h"
+typedef struct vp8_postproc_cfg {
+  int post_proc_flag;
+  int deblocking_level;
+  int noise_level;
+} vp8_postproc_cfg_t;
+
+
+
+
+
+typedef enum vpx_ref_frame_type {
+  VP8_LAST_FRAME = 1,
+  VP8_GOLD_FRAME = 2,
+  VP8_ALTR_FRAME = 4
+} vpx_ref_frame_type_t;
+
+
+
+
+
+typedef struct vpx_ref_frame {
+  vpx_ref_frame_type_t frame_type;
+  vpx_image_t img;
+} vpx_ref_frame_t;
+
+
+
+
+
+typedef struct vp9_ref_frame {
+  int idx;
+  vpx_image_t img;
+} vp9_ref_frame_t;
+
+
+
+
+
+static vpx_codec_err_t vpx_codec_control_VP8_SET_REFERENCE(vpx_codec_ctx_t*, int, vpx_ref_frame_t *) __attribute__ ((unused)); static vpx_codec_err_t vpx_codec_control_VP8_SET_REFERENCE(vpx_codec_ctx_t *ctx, int ctrl_id, vpx_ref_frame_t * data) { return vpx_codec_control_(ctx, ctrl_id, data); }
+static vpx_codec_err_t vpx_codec_control_VP8_COPY_REFERENCE(vpx_codec_ctx_t*, int, vpx_ref_frame_t *) __attribute__ ((unused)); static vpx_codec_err_t vpx_codec_control_VP8_COPY_REFERENCE(vpx_codec_ctx_t *ctx, int ctrl_id, vpx_ref_frame_t * data) { return vpx_codec_control_(ctx, ctrl_id, data); }
+static vpx_codec_err_t vpx_codec_control_VP8_SET_POSTPROC(vpx_codec_ctx_t*, int, vp8_postproc_cfg_t *) __attribute__ ((unused)); static vpx_codec_err_t vpx_codec_control_VP8_SET_POSTPROC(vpx_codec_ctx_t *ctx, int ctrl_id, vp8_postproc_cfg_t * data) { return vpx_codec_control_(ctx, ctrl_id, data); }
+static vpx_codec_err_t vpx_codec_control_VP8_SET_DBG_COLOR_REF_FRAME(vpx_codec_ctx_t*, int, int) __attribute__ ((unused)); static vpx_codec_err_t vpx_codec_control_VP8_SET_DBG_COLOR_REF_FRAME(vpx_codec_ctx_t *ctx, int ctrl_id, int data) { return vpx_codec_control_(ctx, ctrl_id, data); }
+static vpx_codec_err_t vpx_codec_control_VP8_SET_DBG_COLOR_MB_MODES(vpx_codec_ctx_t*, int, int) __attribute__ ((unused)); static vpx_codec_err_t vpx_codec_control_VP8_SET_DBG_COLOR_MB_MODES(vpx_codec_ctx_t *ctx, int ctrl_id, int data) { return vpx_codec_control_(ctx, ctrl_id, data); }
+static vpx_codec_err_t vpx_codec_control_VP8_SET_DBG_COLOR_B_MODES(vpx_codec_ctx_t*, int, int) __attribute__ ((unused)); static vpx_codec_err_t vpx_codec_control_VP8_SET_DBG_COLOR_B_MODES(vpx_codec_ctx_t *ctx, int ctrl_id, int data) { return vpx_codec_control_(ctx, ctrl_id, data); }
+static vpx_codec_err_t vpx_codec_control_VP8_SET_DBG_DISPLAY_MV(vpx_codec_ctx_t*, int, int) __attribute__ ((unused)); static vpx_codec_err_t vpx_codec_control_VP8_SET_DBG_DISPLAY_MV(vpx_codec_ctx_t *ctx, int ctrl_id, int data) { return vpx_codec_control_(ctx, ctrl_id, data); }
+static vpx_codec_err_t vpx_codec_control_VP9_GET_REFERENCE(vpx_codec_ctx_t*, int, vp9_ref_frame_t *) __attribute__ ((unused)); static vpx_codec_err_t vpx_codec_control_VP9_GET_REFERENCE(vpx_codec_ctx_t *ctx, int ctrl_id, vp9_ref_frame_t * data) { return vpx_codec_control_(ctx, ctrl_id, data); }
+# 30 "vpx/vp8dx.h" 2
+
+
+
+
+
+
+
+extern vpx_codec_iface_t vpx_codec_vp8_dx_algo;
+extern vpx_codec_iface_t *vpx_codec_vp8_dx(void);
+
+
+extern vpx_codec_iface_t vpx_codec_vp9_dx_algo;
+extern vpx_codec_iface_t *vpx_codec_vp9_dx(void);
+# 54 "vpx/vp8dx.h"
+enum vp8_dec_control_id {
+
+
+
+  VP8D_GET_LAST_REF_UPDATES = VP8_DECODER_CTRL_ID_START,
+
+
+  VP8D_GET_FRAME_CORRUPTED,
+
+
+
+
+  VP8D_GET_LAST_REF_USED,
+
+
+
+
+
+  VP8D_SET_DECRYPTOR,
+
+
+  VP9D_GET_DISPLAY_SIZE,
+
+
+  VP9_INVERT_TILE_DECODE_ORDER,
+
+  VP8_DECODER_CTRL_ID_MAX
+};
+
+
+
+
+
+typedef struct vp8_decrypt_init {
+
+
+
+    void (*decrypt_cb)(void *decrypt_state, const unsigned char *input,
+                       unsigned char *output, int count);
+
+    void *decrypt_state;
+} vp8_decrypt_init;
+# 105 "vpx/vp8dx.h"
+static vpx_codec_err_t vpx_codec_control_VP8D_GET_LAST_REF_UPDATES(vpx_codec_ctx_t*, int, int *) __attribute__ ((unused)); static vpx_codec_err_t vpx_codec_control_VP8D_GET_LAST_REF_UPDATES(vpx_codec_ctx_t *ctx, int ctrl_id, int * data) { return vpx_codec_control_(ctx, ctrl_id, data); }
+static vpx_codec_err_t vpx_codec_control_VP8D_GET_FRAME_CORRUPTED(vpx_codec_ctx_t*, int, int *) __attribute__ ((unused)); static vpx_codec_err_t vpx_codec_control_VP8D_GET_FRAME_CORRUPTED(vpx_codec_ctx_t *ctx, int ctrl_id, int * data) { return vpx_codec_control_(ctx, ctrl_id, data); }
+static vpx_codec_err_t vpx_codec_control_VP8D_GET_LAST_REF_USED(vpx_codec_ctx_t*, int, int *) __attribute__ ((unused)); static vpx_codec_err_t vpx_codec_control_VP8D_GET_LAST_REF_USED(vpx_codec_ctx_t *ctx, int ctrl_id, int * data) { return vpx_codec_control_(ctx, ctrl_id, data); }
+static vpx_codec_err_t vpx_codec_control_VP8D_SET_DECRYPTOR(vpx_codec_ctx_t*, int, vp8_decrypt_init *) __attribute__ ((unused)); static vpx_codec_err_t vpx_codec_control_VP8D_SET_DECRYPTOR(vpx_codec_ctx_t *ctx, int ctrl_id, vp8_decrypt_init * data) { return vpx_codec_control_(ctx, ctrl_id, data); }
+static vpx_codec_err_t vpx_codec_control_VP9D_GET_DISPLAY_SIZE(vpx_codec_ctx_t*, int, int *) __attribute__ ((unused)); static vpx_codec_err_t vpx_codec_control_VP9D_GET_DISPLAY_SIZE(vpx_codec_ctx_t *ctx, int ctrl_id, int * data) { return vpx_codec_control_(ctx, ctrl_id, data); }
+static vpx_codec_err_t vpx_codec_control_VP9_INVERT_TILE_DECODE_ORDER(vpx_codec_ctx_t*, int, int) __attribute__ ((unused)); static vpx_codec_err_t vpx_codec_control_VP9_INVERT_TILE_DECODE_ORDER(vpx_codec_ctx_t *ctx, int ctrl_id, int data) { return vpx_codec_control_(ctx, ctrl_id, data); }
+# 22 "nvid.c" 2
+
+
+
+
+
+
+static unsigned int mem_get_le32(const unsigned char *mem) {
+    return (mem[3] << 24)|(mem[2] << 16)|(mem[1] << 8)|(mem[0]);
+}
+
+static void die(char *text) {
+    uart_printf(text);
+    if(text[strlen(text)-1] != '\n')
+        uart_printf("\n");
+  fclose(infile);
+    exit(1);
+}
+
+static unsigned char clamp(int x){
+  return (x < 0 ? 0 : (x > 255 ? 255 : x));
+}
+
+static void die_codec(vpx_codec_ctx_t *ctx, char *s) {
+    const char *detail = vpx_codec_error_detail(ctx);
+    uart_printf("%s: %s\n", s, vpx_codec_error(ctx));
+    if(detail)
+        uart_printf("    %s\n",detail);
+  fclose(infile);
+    exit(1);
+}
+
+
+int main(int argc, char **argv) {
+  uart_printf("Line one\n");
+
+  enable_relative_paths(argv);
+    vpx_codec_ctx_t codec;
+    int flags = 0, frame_cnt = 0;
+    unsigned char file_hdr[(32)];
+    unsigned char frame_hdr[(12)];
+    unsigned char frame[256*1024];
+    vpx_codec_err_t res;
+
+  nio_console csl;
+  clrscr();
+
+  nio_init(&csl, 53, 29, 0, 0, 0, 15, TRUE);
+  nio_fflush(&csl);
+  nio_set_default(&csl);
+  nio_fprintf(&csl, "Console initialized\n");
+
+    (void)res;
+
+  if(argc!=2){
+   die("Wrong number of arguments.");
+   return 0;
+  }
+  if(!(infile = fopen(argv[1], "rb"))){
+   die("Could not open input file");
+   return 0;
+  }
+  uart_printf("%d", infile);
+
+
+
+    if(!(fread(file_hdr, 1, (32), infile) == (32)
+         && file_hdr[0]=='D' && file_hdr[1]=='K' && file_hdr[2]=='I'
+         && file_hdr[3]=='F'))
+        die("Not an IVF file!");
+
+
+
+    if(vpx_codec_dec_init_ver(&codec, (vpx_codec_vp8_dx()), ((void *)0), flags, (3 + (2 + (2)))))
+        die_codec(&codec, "Failed to initialize decoder");
+
+
+    while(fread(frame_hdr, 1, (12), infile) == (12)) {
+        unsigned int frame_sz = mem_get_le32(frame_hdr);
+        vpx_codec_iter_t iter = ((void *)0);
+        vpx_image_t *img;
+
+        frame_cnt++;
+    uart_printf("x%u\n", frame_sz);
+        if(frame_sz > sizeof(frame))
+            die("Frame data too big for example code buffer");
+
+        if(fread(frame, 1, 3, infile))
+            die("Failed to read complete frame");
+
+
+
+
+
+    }
+
+    nio_fprintf(&csl, "Processed %d frames.\n",frame_cnt);
+
+
+
+    fclose(infile);
+    return 0;
+}
