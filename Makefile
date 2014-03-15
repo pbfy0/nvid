@@ -6,9 +6,9 @@ LD = nspire-ld-bflt
 GCCFLAGS = -Wall -W -marm -Werror=missing-prototypes -Werror=missing-declarations -Werror=implicit-function-declaration
 LDFLAGS = -L. -lvpx
 ifeq ($(DEBUG),FALSE)
-	GCCFLAGS += -Os
+	GCCFLAGS += -O3
 else
-	GCCFLAGS += -O0 -g
+	GCCFLAGS += -Og -g
 	LDFLAGS += --debug
 endif
 EXE = nvid.tns

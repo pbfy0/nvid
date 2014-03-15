@@ -10,7 +10,6 @@
 
 #include <os.h>
 #include <libndls.h>
-#include <nspireio2.h>
 
 #include <stdint.h>
 
@@ -26,15 +25,9 @@ FILE			*infile;
  
 #define IVF_FILE_HDR_SZ  (32)
 #define IVF_FRAME_HDR_SZ (12)
- 
-//static unsigned int mem_get_le32(const uint8_t *mem) {
-//	return (mem[3] << 24)|(mem[2] << 16)|(mem[1] << 8)|(mem[0]);
-//}
- 
+  
 static void die(char *text) {
-	uart_printf(text);
-	if(text[strlen(text)-1] != '\n')
-		uart_printf("\n");
+	show_msgbox("Error", text);
 	fclose(infile);
 	exit(EXIT_FAILURE);
 }
@@ -45,9 +38,12 @@ static uint8_t clamp(int x){
  
 static void die_codec(vpx_codec_ctx_t *ctx, char *s) {
 	const char *detail = vpx_codec_error_detail(ctx);
-	uart_printf("%s: %s\n", s, vpx_codec_error(ctx));
+	char *err = malloc(100*sizeof(char));
+	
+	sprintf(err, "%s: %s\n", s, vpx_codec_error(ctx));
 	if(detail)
-		uart_printf("	%s\n",detail);
+		sprintf(err, "\t%s\n",detail);
+	show_msgbox("Codec error", err);
 	fclose(infile);
 	exit(EXIT_FAILURE);
 }
@@ -61,34 +57,36 @@ int main(int argc, char **argv) {
 	uint8_t	*frame = malloc(FRAME_SIZE*sizeof(uint8_t));
 	//vpx_codec_err_t  res;
  
-	/* Open files */
+	// Check arguments and open file
 	if(argc!=2){
 		cfg_register_fileext("ivf", "nvid");
 		show_msgbox("Info", "File extension registered\n" "To use, open an ivf file.");
-		return 0;
+		return EXIT_SUCCESS;
 	}
 	if(!(infile = fopen(argv[1], "rb"))){
 		show_msgbox("Error", "Could not open video file.");
-		return 2;
+		return EXIT_FAILURE;
 	}
+	
+	// Cached values for speed
 	uint8_t color_mode = has_colors;
 	int screen_size = SCREEN_BYTES_SIZE;
 	uint8_t *frame_buffer = SCREEN_BASE_ADDRESS;
  
-	/* Read file header */
+	// Ensure file is IVF
 	if(!(fread(file_hdr, 1, IVF_FILE_HDR_SZ, infile) == IVF_FILE_HDR_SZ
 		 && file_hdr[0]=='D' && file_hdr[1]=='K' && file_hdr[2]=='I'
 		 && file_hdr[3]=='F'))
 		die("Not an IVF file!");
  
 	//printf("Using %s\n",vpx_codec_iface_name(vpx_interface));
-	/* Initialize codec */
+	// Initialize codec
 	if(vpx_codec_dec_init(&codec, vpx_interface, NULL, flags))
 		die_codec(&codec, "Failed to initialize decoder");
 	
 	unsigned int frame_sz;
 	uint8_t *output_frame_data = malloc(screen_size);
-	/* Read each frame */
+	// Read frame
 	while(fread(frame_hdr, 1, IVF_FRAME_HDR_SZ, infile) == IVF_FRAME_HDR_SZ) {
 		frame_sz = mem_get_le32(frame_hdr);
 		vpx_codec_iter_t  iter = NULL;
@@ -96,7 +94,7 @@ int main(int argc, char **argv) {
   
 		frame_cnt++;
 		if(frame_sz > FRAME_SIZE)
-			die("Frame data too big for example code buffer");
+			die("Frame data too big for buffer");
 				
 		if(fread(frame, 1, frame_sz, infile) != frame_sz)
 			die("Failed to read complete frame");
@@ -104,7 +102,7 @@ int main(int argc, char **argv) {
 		if(vpx_codec_decode(&codec, frame, frame_sz, NULL, 0))
 			die_codec(&codec, "Failed to decode frame");
 		
-		/* Write decoded data to disk */
+		// Convert frame to RGB and write to framebuffer
 		while((img = vpx_codec_get_frame(&codec, &iter))) {
 			unsigned int x, y;
 			unsigned int width = img->d_w;
@@ -114,18 +112,19 @@ int main(int argc, char **argv) {
 			if(color_mode){
 				uint8_t *ubuf = img->planes[1];
 				uint8_t *vbuf = img->planes[2];
+				int c, d, e;
 				for(y=0; y < height; y++) {
 					for(x=0; x < width; x++) {
-						int c = ybuf[x] - 16;
-						int d = ubuf[x>>1] - 128;
-						int e = vbuf[x>>1] - 128;
+						c = ybuf[x] - 16;
+						d = ubuf[x>>1] - 128;
+						e = vbuf[x>>1] - 128;
 						uint8_t r = clamp((298*c+409*e+128) >> 8);
 						uint8_t g = clamp((298*c-100*d-208*e+128) >> 8);
 						uint8_t b = clamp((298*c+516*d+128) >> 8);
 						unsigned short *pixel = (unsigned short *)(output_frame_data+((y*width+x)<<1));
 						*pixel = (r>>3)<<11 | (g>>2)<<5 | b>>3;
 					}
-
+					
 					ybuf += img->stride[0];
 					if(y&1){
 						ubuf += img->stride[1];
@@ -140,6 +139,7 @@ int main(int argc, char **argv) {
 					ybuf += img->stride[0];
 				}
 			}
+			
 			memcpy(frame_buffer, output_frame_data, screen_size);
 			if(isKeyPressed(KEY_NSPIRE_ESC)){
 				vpx_codec_destroy(&codec);
